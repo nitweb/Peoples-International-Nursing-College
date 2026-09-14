@@ -9,7 +9,7 @@
                 <!-- Logo Start -->
                 <div class="logo">
                     <a href="{{ route('index') }}" class="link">
-                        <img src="{{ asset('frontend/assets/images/logo/logo.png') }}" alt="Logo">
+                        <img src="{{ !empty($global_setting->header_logo) ? asset($global_setting->header_logo) : asset('frontend/assets/images/logo/logo.png') }}" alt="Peoples International Nursing College">
                     </a>
                 </div>
                 <!-- Logo End  -->
@@ -108,14 +108,8 @@
 
             <!-- Header Right start -->
             <div class="header-right flex-align">
-                <form action="#" class="search-form position-relative d-xl-block d-none">
-                    <input type="text" class="common-input rounded-pill bg-main-25 pe-48 border-neutral-30" placeholder="Search...">
-                    <button type="submit" class="w-36 h-36 bg-main-600 hover-bg-main-700 rounded-circle flex-center text-md text-white position-absolute top-50 translate-middle-y inset-inline-end-0 me-8">
-                        <i class="ph-bold ph-magnifying-glass"></i>
-                    </button>
-                </form>
-                <a href="sign-in.html" class="info-action w-52 h-52 bg-main-25 hover-bg-main-600 border border-neutral-30 rounded-circle flex-center text-2xl text-neutral-500 hover-text-white hover-border-main-600">
-                    <i class="ph ph-user-circle"></i>
+                <a href="{{ route('frontend.training.development') }}" class="btn btn-main rounded-pill d-lg-flex d-none">
+                    Apply for Admission
                 </a>
                 <button type="button" class="toggle-mobileMenu d-lg-none text-neutral-200 flex-center">
                     <i class="ph ph-list"></i>

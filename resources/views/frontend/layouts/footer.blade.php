@@ -12,44 +12,54 @@
                 <div class="col-lg-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-duration="400">
                     <div class="footer-item">
                         <div class="footer-item__logo mb-0" data-aos="zoom-in-right">
-                            <a href="{{ route('index') }}"> <img src="{{ asset('frontend/assets/images/logo/logo-white.png') }}" alt=""></a>
+                            <a href="{{ route('index') }}">
+                                <img src="{{ !empty($global_setting->footer_logo) ? asset($global_setting->footer_logo) : asset('frontend/assets/images/logo/logo-white.png') }}" alt="Peoples International Nursing College">
+                            </a>
                         </div>
-                        <p class="my-32 text-white">EduAll exceeded all my expectations! The instructors were not only experts</p>
+                        <p class="my-32 text-white">{{ $global_setting->footer_text ?? 'Peoples International Nursing College is committed to producing skilled, compassionate nursing professionals for Bangladesh and beyond.' }}</p>
                         <ul class="social-list flex-align gap-24" data-aos="zoom-in-left">
-                            <li class="social-list__item">
-                                <a href="https://www.facebook.com" class="text-white text-2xl hover-text-main-two-600"><i class="ph-bold ph-facebook-logo"></i></a>
-                            </li>
-                            <li class="social-list__item">
-                                <a href="https://www.twitter.com" class="text-white text-2xl hover-text-main-two-600"> <i class="ph-bold ph-twitter-logo"></i></a>
-                            </li>
-                            <li class="social-list__item">
-                                <a href="https://www.linkedin.com" class="text-white text-2xl hover-text-main-two-600"><i class="ph-bold ph-instagram-logo"></i></a>
-                            </li>
-                            <li class="social-list__item">
-                                <a href="https://www.pinterest.com" class="text-white text-2xl hover-text-main-two-600"><i class="ph-bold ph-pinterest-logo"></i></a>
-                            </li>
+                            @if(!empty($global_setting->facebook))
+                                <li class="social-list__item">
+                                    <a href="{{ $global_setting->facebook }}" target="_blank" class="text-white text-2xl hover-text-main-two-600"><i class="ph-bold ph-facebook-logo"></i></a>
+                                </li>
+                            @endif
+                            @if(!empty($global_setting->youtube))
+                                <li class="social-list__item">
+                                    <a href="{{ $global_setting->youtube }}" target="_blank" class="text-white text-2xl hover-text-main-two-600"><i class="ph-bold ph-youtube-logo"></i></a>
+                                </li>
+                            @endif
+                            @if(!empty($global_setting->linkedin))
+                                <li class="social-list__item">
+                                    <a href="{{ $global_setting->linkedin }}" target="_blank" class="text-white text-2xl hover-text-main-two-600"><i class="ph-bold ph-linkedin-logo"></i></a>
+                                </li>
+                            @endif
+                            @if(!empty($global_setting->instagram))
+                                <li class="social-list__item">
+                                    <a href="{{ $global_setting->instagram }}" target="_blank" class="text-white text-2xl hover-text-main-two-600"><i class="ph-bold ph-instagram-logo"></i></a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-duration="400">
                     <div class="footer-item">
-                        <h4 class="footer-item__title fw-medium text-white mb-32">Quick Link</h4>
+                        <h4 class="footer-item__title fw-medium text-white mb-32">Quick Links</h4>
                         <ul class="footer-menu">
                             <li class="mb-16">
-                                <a href="about.html" class="text-white hover-text-main-600 hover-text-decoration-underline">About us</a>
+                                <a href="{{ route('frontend.about.us') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">About Us</a>
                             </li>
                             <li class="mb-16">
-                                <a href="courses.html" class="text-white hover-text-main-600 hover-text-decoration-underline">Courses</a>
+                                <a href="{{ route('frontend.training.development') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Academy</a>
                             </li>
                             <li class="mb-16">
-                                <a href="instructor.html" class="text-white hover-text-main-600 hover-text-decoration-underline">Instructor</a>
+                                <a href="{{ route('frontend.team.list') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Our Team</a>
                             </li>
                             <li class="mb-16">
-                                <a href="faq.html" class="text-white hover-text-main-600 hover-text-decoration-underline">FAQs</a>
+                                <a href="{{ route('frontend.career') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Career</a>
                             </li>
                             <li class="mb-0">
-                                <a href="blog.html" class="text-white hover-text-main-600 hover-text-decoration-underline">Blogs</a>
+                                <a href="{{ route('frontend.blog.list') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Blog</a>
                             </li>
                         </ul>
                     </div>
@@ -57,22 +67,22 @@
 
                 <div class="col-lg-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-duration="600">
                     <div class="footer-item">
-                        <h4 class="footer-item__title fw-medium text-white mb-32">Category</h4>
+                        <h4 class="footer-item__title fw-medium text-white mb-32">Resources</h4>
                         <ul class="footer-menu">
                             <li class="mb-16">
-                                <a href="courses.html" class="text-white hover-text-main-600 hover-text-decoration-underline">UI/UX Design</a>
+                                <a href="{{ route('frontend.notice.list') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Notice</a>
                             </li>
                             <li class="mb-16">
-                                <a href="courses.html" class="text-white hover-text-main-600 hover-text-decoration-underline">Web Development</a>
+                                <a href="{{ route('frontend.notice.circular') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Notice &amp; Circular</a>
                             </li>
                             <li class="mb-16">
-                                <a href="courses.html" class="text-white hover-text-main-600 hover-text-decoration-underline">Python Development</a>
+                                <a href="{{ route('frontend.publications') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Publications</a>
                             </li>
                             <li class="mb-16">
-                                <a href="courses.html" class="text-white hover-text-main-600 hover-text-decoration-underline">Digital Marketing</a>
+                                <a href="{{ route('frontend.gallery') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Gallery</a>
                             </li>
-                            <li class="mb-16">
-                                <a href="courses.html" class="text-white hover-text-main-600 hover-text-decoration-underline">Graphic Design</a>
+                            <li class="mb-0">
+                                <a href="{{ route('frontend.donation.list') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Donation</a>
                             </li>
                         </ul>
                     </div>
@@ -84,24 +94,33 @@
                         <div class="flex-align gap-20 mb-24">
                             <span class="icon d-flex text-32 text-main-600"><i class="ph ph-phone"></i></span>
                             <div class="">
-                                <a href="tel:(207)555-0119" class="text-white d-block hover-text-main-600 mb-4">(207) 555-0119</a>
-                                <a href="tel:(704)555-0127" class="text-white d-block hover-text-main-600 mb-0">(704) 555-0127</a>
+                                @if(!empty($global_setting->site_phone))
+                                    <a href="tel:{{ $global_setting->site_phone }}" class="text-white d-block hover-text-main-600 mb-4">{{ $global_setting->site_phone }}</a>
+                                @endif
+                                @if(!empty($global_setting->site_phone_alter))
+                                    <a href="tel:{{ $global_setting->site_phone_alter }}" class="text-white d-block hover-text-main-600 mb-0">{{ $global_setting->site_phone_alter }}</a>
+                                @endif
                             </div>
                         </div>
                         <div class="flex-align gap-20 mb-24">
                             <span class="icon d-flex text-32 text-main-600"><i class="ph ph-envelope-open"></i></span>
                             <div class="">
-                                <a href="mailto:dwallo@gmail.com" class="text-white d-block hover-text-main-600 mb-4">dwallo@gmail.com</a>
-                                <a href="mailto:eduAll@gmail.com" class="text-white d-block hover-text-main-600 mb-0">eduAll@gmail.com</a>
+                                @if(!empty($global_setting->site_email))
+                                    <a href="mailto:{{ $global_setting->site_email }}" class="text-white d-block hover-text-main-600 mb-4">{{ $global_setting->site_email }}</a>
+                                @endif
+                                @if(!empty($global_setting->site_email_alter))
+                                    <a href="mailto:{{ $global_setting->site_email_alter }}" class="text-white d-block hover-text-main-600 mb-0">{{ $global_setting->site_email_alter }}</a>
+                                @endif
                             </div>
                         </div>
-                        <div class="flex-align gap-20 mb-0">
-                            <span class="icon d-flex text-32 text-main-600"><i class="ph ph-map-trifold"></i></span>
-                            <div class="">
-                                <span class="text-white d-block mb-4">5488 srker Rd .</span>
-                                <span class="text-white d-block mb-0">8745 doer Dr.</span>
+                        @if(!empty($global_setting->site_address))
+                            <div class="flex-align gap-20 mb-0">
+                                <span class="icon d-flex text-32 text-main-600"><i class="ph ph-map-trifold"></i></span>
+                                <div class="">
+                                    <span class="text-white d-block mb-0">{{ $global_setting->site_address }}</span>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
 
@@ -120,7 +139,9 @@
 
                 <div class="bottom-footer__inner flex-center gap-16 flex-wrap">
 
-                    <p class="text-white text-line-1 fw-normal" data-aos="zoom-in"> Copyright &copy; 2026 <span class="fw-semibold">EduAll</span> All Rights Reserved.</p>
+                    <p class="text-white text-line-1 fw-normal" data-aos="zoom-in">
+                        {{ $global_setting->copyright ?? ('Copyright © ' . date('Y') . ' Peoples International Nursing College. All Rights Reserved.') }}
+                    </p>
 
                 </div>
 
