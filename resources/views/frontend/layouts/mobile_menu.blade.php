@@ -82,6 +82,10 @@
                     <li class="nav-menu__item">
                         <a href="{{ route('frontend.contact.us') }}" class="nav-menu__link">Contact</a>
                     </li>
+
+                    <li class="nav-menu__item">
+                        <a href="{{ route('frontend.faq') }}" class="nav-menu__link">FAQ</a>
+                    </li>
                 </ul>
 
             </div>

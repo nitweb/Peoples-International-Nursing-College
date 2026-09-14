@@ -100,6 +100,7 @@ Route::group(
                 Route::get('/notice', 'NoticeList')->name('notice.list');
 
                 Route::get('/contact-us', 'ContactUs')->name('contact.us');
+                Route::get('/faq', 'Faq')->name('faq');
                 Route::get('/profile', 'showProfile')->name('show.profile');
                 Route::get('/terms-conditions', 'TermsConditions')->name('terms.conditions');
                 Route::get('/privacy-policy', 'PrivacyPolicy')->name('privacy.policy');

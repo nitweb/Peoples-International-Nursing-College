@@ -13,7 +13,7 @@
                         </span>
                         <div>
                             <h4 class="mb-16">Scholarship Facility</h4>
-                            <p class="text-neutral-700">These facilities provide students with an inspiring </p>
+                            <p class="text-neutral-700">Merit-based scholarships and financial support for deserving students.</p>
                         </div>
                     </div>
                 </div>
@@ -24,8 +24,8 @@
                             <img src="{{ asset('frontend/assets/images/icons/info-two-icon2.png') }}" class="animate__heartBeat" alt="">
                         </span>
                         <div>
-                            <h4 class="mb-16">Esteemed Faculty</h4>
-                            <p class="text-neutral-700">Our university boasts a team of renowned faculty members</p>
+                            <h4 class="mb-16">Experienced Faculty</h4>
+                            <p class="text-neutral-700">Qualified nursing educators and clinical instructors with years of field experience.</p>
                         </div>
                     </div>
                 </div>
@@ -36,8 +36,8 @@
                             <img src="{{ asset('frontend/assets/images/icons/info-two-icon3.png') }}" class="animate__heartBeat" alt="">
                         </span>
                         <div>
-                            <h4 class="mb-16">Diverse Programs</h4>
-                            <p class="text-neutral-700">From undergraduate degrees to postgraduate research </p>
+                            <h4 class="mb-16">Practical Training</h4>
+                            <p class="text-neutral-700">Hands-on clinical training alongside strong theoretical foundations.</p>
                         </div>
                     </div>
                 </div>

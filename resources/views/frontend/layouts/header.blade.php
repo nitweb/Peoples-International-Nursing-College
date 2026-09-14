@@ -1,24 +1,24 @@
 <header class="header">
 
-    <div class="container container--xl">
+    <div class="container">
 
-        <nav class="header-inner flex-between gap-8">
+        <div class="row align-items-center justify-content-between">
 
-            <div class="header-content-wrapper flex-align flex-grow-1">
-
-                <!-- Logo Start -->
+            <!-- Logo Start -->
+            <div class="col-auto">
                 <div class="logo">
                     <a href="{{ route('index') }}" class="link">
                         <img src="{{ !empty($global_setting->header_logo) ? asset($global_setting->header_logo) : asset('frontend/assets/images/logo/logo.png') }}" alt="Peoples International Nursing College">
                     </a>
                 </div>
-                <!-- Logo End  -->
+            </div>
+            <!-- Logo End  -->
 
+            <!-- Menu Start  -->
+            <div class="col d-lg-block d-none">
+                <div class="header-menu d-flex justify-content-center">
 
-                <!-- Menu Start  -->
-                <div class="header-menu d-lg-block d-none">
-
-                    <ul class="nav-menu flex-align ">
+                   <ul class="nav-menu flex-align ">
 
                         <li class="nav-menu__item activePage">
                             <a href="{{ route('index') }}" class="nav-menu__link">Home</a>
@@ -99,25 +99,17 @@
                             <a href="{{ route('frontend.contact.us') }}" class="nav-menu__link">Contact</a>
                         </li>
 
+                        <li class="nav-menu__item">
+                            <a href="{{ route('frontend.faq') }}" class="nav-menu__link">FAQ</a>
+                        </li>
+
                     </ul>
 
                 </div>
-                <!-- Menu End  -->
-
             </div>
+            <!-- Menu End  -->
 
-            <!-- Header Right start -->
-            <div class="header-right flex-align">
-                <a href="{{ route('frontend.training.development') }}" class="btn btn-main rounded-pill d-lg-flex d-none">
-                    Apply for Admission
-                </a>
-                <button type="button" class="toggle-mobileMenu d-lg-none text-neutral-200 flex-center">
-                    <i class="ph ph-list"></i>
-                </button>
-            </div>
-            <!-- Header Right End  -->
-
-        </nav>
+        </div>
 
     </div>
 
