@@ -204,22 +204,8 @@
                         <a href="{{ route('frontend.media') }}" class="nav-menu__link">Media</a>
                     </li>
 
-                    <li class="nav-menu__item has-submenu">
-                        <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
-                        <ul class="nav-submenu scroll-sm">
-                            <li class="nav-submenu__item">
-                                <a href="blog.html" class="nav-submenu__link hover-bg-neutral-30"> Blog Grid</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="blog-list.html" class="nav-submenu__link hover-bg-neutral-30"> Blog List</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="blog-classic.html" class="nav-submenu__link hover-bg-neutral-30"> Blog Classic</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="blog-details.html" class="nav-submenu__link hover-bg-neutral-30"> Blog Details</a>
-                            </li>
-                        </ul>
+                    <li class="nav-menu__item">
+                        <a href="{{ route('frontend.blog.list') }}" class="nav-menu__link">Blog</a>
                     </li>
                     <li class="nav-menu__item">
                         <a href="contact.html" class="nav-menu__link">Contact</a>
