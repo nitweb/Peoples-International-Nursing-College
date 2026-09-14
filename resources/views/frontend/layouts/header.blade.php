@@ -61,6 +61,25 @@
                         </li>
 
                         <li class="nav-menu__item has-submenu">
+                            <a href="javascript:void(0)" class="nav-menu__link">Notices</a>
+                            <ul class="nav-submenu scroll-sm">
+                                <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.notice.list') }}" class="nav-submenu__link hover-bg-neutral-30">Notice</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.notice.circular') }}" class="nav-submenu__link hover-bg-neutral-30">Notice &amp; Circular</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.publications') }}" class="nav-submenu__link hover-bg-neutral-30">Publications</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-menu__item">
+                            <a href="{{ route('frontend.career') }}" class="nav-menu__link">Career</a>
+                        </li>
+
+                        <li class="nav-menu__item has-submenu">
                             <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
                             <ul class="nav-submenu scroll-sm">
                                 <li class="nav-submenu__item">
