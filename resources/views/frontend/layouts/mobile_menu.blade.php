@@ -196,6 +196,14 @@
                         <a href="{{ route('frontend.career') }}" class="nav-menu__link">Career</a>
                     </li>
 
+                    <li class="nav-menu__item">
+                        <a href="{{ route('frontend.gallery') }}" class="nav-menu__link">Gallery</a>
+                    </li>
+
+                    <li class="nav-menu__item">
+                        <a href="{{ route('frontend.media') }}" class="nav-menu__link">Media</a>
+                    </li>
+
                     <li class="nav-menu__item has-submenu">
                         <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
                         <ul class="nav-submenu scroll-sm">
