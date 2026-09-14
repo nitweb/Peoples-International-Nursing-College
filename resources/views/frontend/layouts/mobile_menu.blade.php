@@ -48,67 +48,28 @@
                         </ul>
                     </li>
                     <li class="nav-menu__item has-submenu">
-                        <a href="javascript:void(0)" class="nav-menu__link">Pages</a>
+                        <a href="{{ route('frontend.about.us') }}" class="nav-menu__link">About Us</a>
                         <ul class="nav-submenu scroll-sm">
                             <li class="nav-submenu__item">
-                                <a href="about.html" class="nav-submenu__link hover-bg-neutral-30"> About</a>
+                                <a href="{{ route('frontend.about.us') }}" class="nav-submenu__link hover-bg-neutral-30">About Us</a>
                             </li>
                             <li class="nav-submenu__item">
-                                <a href="about-two.html" class="nav-submenu__link hover-bg-neutral-30"> About Two</a>
+                                <a href="{{ route('frontend.mission.vision.values') }}" class="nav-submenu__link hover-bg-neutral-30">Mission, Vision &amp; Values</a>
                             </li>
                             <li class="nav-submenu__item">
-                                <a href="about-three.html" class="nav-submenu__link hover-bg-neutral-30"> About Three</a>
+                                <a href="{{ route('frontend.executive.director.message') }}" class="nav-submenu__link hover-bg-neutral-30">Director's Message</a>
                             </li>
                             <li class="nav-submenu__item">
-                                <a href="about-four.html" class="nav-submenu__link hover-bg-neutral-30"> About Four</a>
+                                <a href="{{ route('frontend.executive.committee') }}" class="nav-submenu__link hover-bg-neutral-30">Executive Committee</a>
                             </li>
                             <li class="nav-submenu__item">
-                                <a href="pricing-plan.html" class="nav-submenu__link hover-bg-neutral-30">Pricing Plan</a>
+                                <a href="{{ route('frontend.our.leadership') }}" class="nav-submenu__link hover-bg-neutral-30">Our Leadership</a>
                             </li>
                             <li class="nav-submenu__item">
-                                <a href="instructor.html" class="nav-submenu__link hover-bg-neutral-30"> Instructor</a>
+                                <a href="{{ route('frontend.our.partners') }}" class="nav-submenu__link hover-bg-neutral-30">Our Partners</a>
                             </li>
                             <li class="nav-submenu__item">
-                                <a href="instructor-two.html" class="nav-submenu__link hover-bg-neutral-30"> Instructor Two</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="instructor-details.html" class="nav-submenu__link hover-bg-neutral-30"> Instructor Details</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="tutor.html" class="nav-submenu__link hover-bg-neutral-30"> Premium Tutors</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="tutor-details.html" class="nav-submenu__link hover-bg-neutral-30"> Premium Tutors Details</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="faq.html" class="nav-submenu__link hover-bg-neutral-30">FAQ</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="tuition-jobs.html" class="nav-submenu__link hover-bg-neutral-30">Tuition Jobs</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="events.html" class="nav-submenu__link hover-bg-neutral-30">Events</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="event-details.html" class="nav-submenu__link hover-bg-neutral-30">Event Details</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="apply-admission.html" class="nav-submenu__link hover-bg-neutral-30">Apply Admission</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="gallery.html" class="nav-submenu__link hover-bg-neutral-30">Gallery</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="privacy-policy.html" class="nav-submenu__link hover-bg-neutral-30">Privacy Policy</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="favorite-course.html" class="nav-submenu__link hover-bg-neutral-30">Favorite Course</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="find-tutors.html" class="nav-submenu__link hover-bg-neutral-30">Find Best Tutors</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="book-online-class.html" class="nav-submenu__link hover-bg-neutral-30">Book Online Class</a>
+                                <a href="{{ route('frontend.team.list') }}" class="nav-submenu__link hover-bg-neutral-30">Our Team</a>
                             </li>
                         </ul>
                     </li>
