@@ -1,127 +1,161 @@
-<header class="main-header header-style-two">
+<header class="header">
 
-    <!-- header-top -->
-    <div class="header-top">
+    <div class="container container--xl">
 
-        <div class="top-inner">
+        <nav class="header-inner flex-between gap-8">
 
-            <div class="top-left">
-                <ul class="social-links clearfix">
-                    <li><a href="{{ siteSetting()->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="{{ siteSetting()->linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="{{ siteSetting()->youtube }}" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                    <li><a href="{{ siteSetting()->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                </ul>
-            </div>
+            <div class="header-content-wrapper flex-align flex-grow-1">
 
-            <div class="top-right">
-                <ul class="info">
-                    <li><i class="icon-20"></i>{{ siteSetting()->head_address }}</li>
-                    <li><i class="icon-21"></i><a href="tel:{{ siteSetting()->site_phone }}">{{ siteSetting()->site_phone }}</a></li>
-                    <li><i class="icon-22"></i><a href="mailto:{{ siteSetting()->site_email }}">{{ siteSetting()->site_email }}</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- header-lower -->
-    <div class="header-lower">
-
-        <div class="outer-box">
-
-            <div class="logo-box">
-                <figure class="logo">
-                    <a href="{{ route('index') }}">
-                        <img src="{{ asset(siteSetting()->header_logo) }}" alt="Site Logo">
+                <!-- Logo Start -->
+                <div class="logo">
+                    <a href="{{ route('index') }}" class="link">
+                        <img src="{{ asset('frontend/assets/images/logo/logo.png') }}" alt="Logo">
                     </a>
-                </figure>
-            </div>
-
-            <div class="menu-area clearfix">
-
-                <!--Mobile Navigation Toggler-->
-                <div class="mobile-nav-toggler">
-                    <i class="icon-bar"></i>
-                    <i class="icon-bar"></i>
-                    <i class="icon-bar"></i>
                 </div>
+                <!-- Logo End  -->
 
-                <nav class="main-menu navbar-expand-md navbar-light">
-                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                        <ul class="navigation clearfix">
 
-                            <li><a href="{{ route('index') }}">Home</a></li>
+                <!-- Menu Start  -->
+                <div class="header-menu d-lg-block d-none">
 
-                            <li class="dropdown"><a href="javascript:void(0)">About Us</a>
-                                <ul>
-                                    <li><a href="{{ route('frontend.about.us') }}">About Company</a></li>
-                                    <li><a href="{{ route('frontend.mission.vision.values') }}">Mission, Vision & Values</a></li>
-                                    <li><a href="{{ route('frontend.executive.director.message') }}">Executive Director's Message</a></li>
-                                    <li><a href="{{ route('frontend.executive.committee') }}">Executive Committee</a></li>
-                                    <li><a href="{{ route('frontend.our.leadership') }}">Our Leadership</a></li>
-                                    <li><a href="{{ route('frontend.our.partners') }}">Our Partners</a></li>
-                                    <li><a href="{{ route('frontend.meet.our.team') }}">Meet Our Team</a></li>
-                                </ul>
-                            </li>
+                    <ul class="nav-menu flex-align ">
 
-                            <li><a href="{{ route('frontend.all.services.list') }}">Services</a></li>
+                        <li class="nav-menu__item activePage">
+                            <a href="{{ route('index') }}" class="nav-menu__link">Home</a>
+                        </li>
 
-                            <li class="dropdown"><a href="javascript:void(0)">Resources</a>
-                                <ul>
-                                    <li><a href="{{ route('frontend.media') }}">Media</a></li>
-                                    <li><a href="{{ route('frontend.blog.list') }}">Blog</a></li>
-                                    <li><a href="{{ route('frontend.notice.list') }}">Notice</a></li>
-                                    <li><a href="{{ route('frontend.donation.list') }}">Donate</a></li>
-                                </ul>
-                            </li>
+                        <li class="nav-menu__item has-submenu">
+                            <a href="javascript:void(0)" class="nav-menu__link">Courses</a>
+                            <ul class="nav-submenu scroll-sm">
+                                <li class="nav-submenu__item">
+                                    <a href="course.html" class="nav-submenu__link hover-bg-neutral-30"> Course Grid View</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="course-list-view.html" class="nav-submenu__link hover-bg-neutral-30"> Course List View</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="course-details.html" class="nav-submenu__link hover-bg-neutral-30"> Course Details</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="lesson-details.html" class="nav-submenu__link hover-bg-neutral-30"> Lesson Details</a>
+                                </li>
+                            </ul>
+                        </li>
 
-                            <li><a href="{{ route('frontend.career') }}">Career</a></li>
+                        <li class="nav-menu__item has-submenu">
+                            <a href="javascript:void(0)" class="nav-menu__link">Pages</a>
+                            <ul class="nav-submenu scroll-sm">
+                                <li class="nav-submenu__item">
+                                    <a href="about.html" class="nav-submenu__link hover-bg-neutral-30"> About</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="about-two.html" class="nav-submenu__link hover-bg-neutral-30"> About Two</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="about-three.html" class="nav-submenu__link hover-bg-neutral-30"> About Three</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="about-four.html" class="nav-submenu__link hover-bg-neutral-30"> About Four</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="pricing-plan.html" class="nav-submenu__link hover-bg-neutral-30">Pricing Plan</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="instructor.html" class="nav-submenu__link hover-bg-neutral-30"> Instructor</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="instructor-two.html" class="nav-submenu__link hover-bg-neutral-30"> Instructor Two</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="instructor-details.html" class="nav-submenu__link hover-bg-neutral-30"> Instructor Details</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="tutor.html" class="nav-submenu__link hover-bg-neutral-30"> Premium Tutors</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="tutor-details.html" class="nav-submenu__link hover-bg-neutral-30"> Premium Tutors Details</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="faq.html" class="nav-submenu__link hover-bg-neutral-30">FAQ</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="tuition-jobs.html" class="nav-submenu__link hover-bg-neutral-30">Tuition Jobs</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="events.html" class="nav-submenu__link hover-bg-neutral-30">Events</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="event-details.html" class="nav-submenu__link hover-bg-neutral-30">Event Details</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="apply-admission.html" class="nav-submenu__link hover-bg-neutral-30">Apply Admission</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="gallery.html" class="nav-submenu__link hover-bg-neutral-30">Gallery</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="privacy-policy.html" class="nav-submenu__link hover-bg-neutral-30">Privacy Policy</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="favorite-course.html" class="nav-submenu__link hover-bg-neutral-30">Favorite Course</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="find-tutors.html" class="nav-submenu__link hover-bg-neutral-30">Find Best Tutors</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="book-online-class.html" class="nav-submenu__link hover-bg-neutral-30">Book Online Class</a>
+                                </li>
+                            </ul>
+                        </li>
 
-                            <li><a href="{{ route('frontend.contact.us') }}">Contact</a></li>
+                        <li class="nav-menu__item has-submenu">
+                            <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
+                            <ul class="nav-submenu scroll-sm">
+                                <li class="nav-submenu__item">
+                                    <a href="blog.html" class="nav-submenu__link hover-bg-neutral-30"> Blog Grid</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="blog-list.html" class="nav-submenu__link hover-bg-neutral-30"> Blog List</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="blog-classic.html" class="nav-submenu__link hover-bg-neutral-30"> Blog Classic</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="blog-details.html" class="nav-submenu__link hover-bg-neutral-30"> Blog Details</a>
+                                </li>
+                            </ul>
+                        </li>
 
-                        </ul>
+                        <li class="nav-menu__item">
+                            <a href="contact.html" class="nav-menu__link">Contact</a>
+                        </li>
 
-                    </div>
-
-                </nav>
-
-            </div>
-
-            <ul class="nav-right">
-                <div class="btn-box">
-                    <a href="{{ route('frontend.donation.list') }}" class="donate-box-btn theme-btn-one"><span>Donate Now</span></a>
-                </div>
-            </ul>
-
-        </div>
-
-    </div>
-
-    <!--sticky Header-->
-    <div class="sticky-header">
-        <div class="outer-container">
-            <div class="outer-box">
-                <div class="logo-box">
-                    <figure class="logo">
-                        <a href="{{ route('index') }}">
-                            <img src="{{ asset(siteSetting()->header_logo) }}" alt="Site Logo">
-                        </a>
-                    </figure>
-                </div>
-                <div class="menu-area clearfix">
-                    <nav class="main-menu clearfix">
-                        <!--Keep This Empty / Menu will come through Javascript-->
-                    </nav>
-                    <ul class="nav-right">
-                        <div class="btn-box">
-                            <a href="{{ route('frontend.donation.list') }}" class="donate-box-btn theme-btn-one"><span>Donate Now</span></a>
-                        </div>
                     </ul>
+
                 </div>
+                <!-- Menu End  -->
+
             </div>
-        </div>
+
+            <!-- Header Right start -->
+            <div class="header-right flex-align">
+                <form action="#" class="search-form position-relative d-xl-block d-none">
+                    <input type="text" class="common-input rounded-pill bg-main-25 pe-48 border-neutral-30" placeholder="Search...">
+                    <button type="submit" class="w-36 h-36 bg-main-600 hover-bg-main-700 rounded-circle flex-center text-md text-white position-absolute top-50 translate-middle-y inset-inline-end-0 me-8">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                    </button>
+                </form>
+                <a href="sign-in.html" class="info-action w-52 h-52 bg-main-25 hover-bg-main-600 border border-neutral-30 rounded-circle flex-center text-2xl text-neutral-500 hover-text-white hover-border-main-600">
+                    <i class="ph ph-user-circle"></i>
+                </a>
+                <button type="button" class="toggle-mobileMenu d-lg-none text-neutral-200 flex-center">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+            <!-- Header Right End  -->
+
+        </nav>
+
     </div>
 
 </header>

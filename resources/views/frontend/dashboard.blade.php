@@ -2,109 +2,77 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@yield('title') | People's International Foundation</title>
+    {{-- Title --}}
+    <title>@yield('title') | Peoples International Nursing College</title>
 
-    <!-- Fav Icon -->
-    <link rel="icon" href="{{ asset('frontend/assets/images/favicon.png') }}" type="image/x-icon">
+    {{-- Favicon --}}
+    <link rel="shortcut icon" href="{{ asset('frontend/assets/images/logo/favicon.png') }}">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="@yield('title') | People's International Foundation" />
-    <meta property="og:description" content="People's International Foundation: Dedicated to the empowerment of poor women by creating strong economic and social resource bases." />
-    <meta property="og:image" content="{{ asset('frontend/assets/images/og_image.jpg') }}" />
-    <meta property="og:url" content="{{ url()->current() }}" />
-    <meta property="og:site_name" content="People's International Foundation" />
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="@yield('title') | People's International Foundation" />
-    <meta name="twitter:description" content="People's International Foundation: Dedicated to the empowerment of poor women by creating strong economic and social resource bases." />
-    <meta name="twitter:image" content="{{ asset('frontend/assets/images/og_image.jpg') }}" />
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
-
-    <!-- Stylesheets -->
-    <link href="{{ asset('frontend/assets/css/font-awesome-all.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/flaticon.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/owl.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/jquery.fancybox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/nice-select.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/jquery-ui.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/jquery.bootstrap-touchspin.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/color.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/elpath.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/style.css') }}?v={{ filemtime(public_path('frontend/assets/css/style.css')) }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/assets/css/custom.css') }}?v={{ filemtime(public_path('frontend/assets/css/custom.css')) }}" rel="stylesheet">
+    {{-- CSS --}}
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/plyr.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/editor-quill.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/dataTables.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}">
 
 </head>
 
 <body>
 
-    <div class="boxed_wrapper">
+    {{-- Overlay --}}
+    <div class="overlay"></div>
 
-        <!-- preloader -->
-        {{-- @include('frontend.layouts.preloader') --}}
+    {{-- Sidebar Overlay --}}
+    <div class="side-overlay"></div>
 
-        <!--Search Popup-->
-        @include('frontend.layouts.search_popup')
-
-        <!-- main header -->
-        @include('frontend.layouts.header')
-
-        <!-- Mobile Menu  -->
-        @include('frontend.layouts.mobile_menu')
-
-        {{-- Home Page Contents --}}
-        @yield('contents')
-
-        <!-- main-footer -->
-        @include('frontend.layouts.footer')
-
-        <!--Scroll to top-->
-        <div class="scroll-to-top">
-            <div>
-                <div class="scroll-top-inner">
-                    <div class="scroll-bar">
-                        <div class="bar-inner"></div>
-                    </div>
-                    <div class="scroll-bar-text">Go To Top</div>
-                </div>
-            </div>
-        </div>
-
+    {{-- Scroll to Top End --}}
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
     </div>
 
-    <!-- jequery plugins -->
-    <script src="{{ asset('frontend/assets/js/jquery.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/owl.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/wow.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/validation.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/jquery.fancybox.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/appear.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/scrollbar.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/isotope.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/parallax-scroll.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/jquery-ui.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/nav-tool.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/jquery.bootstrap-touchspin.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/bxslider.js') }}"></script>
+    {{-- Mobile Menu --}}
+    @include('frontend.layouts.mobile_menu')
 
-    <!-- main-js -->
-    <script src="{{ asset('frontend/assets/js/script.js') }}?v={{ filemtime(public_path('frontend/assets/js/script.js')) }}"></script>
+    {{-- Header --}}
+    @include('frontend.layouts.header')
+
+    {{-- Home Contents --}}
+    @yield('contents')
+
+    {{-- Footer --}}
+    @include('frontend.layouts.footer')
+
+    {{-- Scripts --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/boostrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/select2.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/phosphor-icon.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/slick.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/counter.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/marquee.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/apexcharts.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/plyr.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/editor-quill.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/dataTables.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/vanilla-tilt.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/aos.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
 
 </body>
 
