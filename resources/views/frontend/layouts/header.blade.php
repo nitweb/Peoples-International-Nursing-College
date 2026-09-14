@@ -92,7 +92,11 @@
                         </li>
 
                         <li class="nav-menu__item">
-                            <a href="contact.html" class="nav-menu__link">Contact</a>
+                            <a href="{{ route('frontend.donation.list') }}" class="nav-menu__link">Donation</a>
+                        </li>
+
+                        <li class="nav-menu__item">
+                            <a href="{{ route('frontend.contact.us') }}" class="nav-menu__link">Contact</a>
                         </li>
 
                     </ul>
