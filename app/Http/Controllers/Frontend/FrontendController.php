@@ -57,7 +57,11 @@ class FrontendController extends Controller
 
         $media_videos = MediaVideo::where('status', 'active')->orderBy('published_at', 'desc')->take(6)->get();
 
-        return view('frontend.index', compact('slider', 'about_us', 'services', 'our_team', 'top_level_team', 'client', 'institutions', 'blog', 'testimonials', 'media_videos'));
+        $training_list = Training::where('status', 'active')->latest()->take(3)->get();
+
+        $notices = Notice::latest()->take(5)->get();
+
+        return view('frontend.index', compact('slider', 'about_us', 'services', 'our_team', 'top_level_team', 'client', 'institutions', 'blog', 'testimonials', 'media_videos', 'training_list', 'notices'));
     } // End Method
 
     public function Media()
@@ -184,6 +188,46 @@ class FrontendController extends Controller
         $site_setting = Setting::firstOrFail();
         $services = Service::where('status', 'active')->latest()->get();
         return view('frontend.pages.contact', compact('site_setting', 'services'));
+    } // End Method
+
+    public function Faq()
+    {
+        // Static FAQ content — no dedicated backend model for this yet.
+        $faqs = [
+            [
+                'category' => 'Admission',
+                'items' => [
+                    ['q' => 'What are the eligibility requirements for admission?', 'a' => 'Applicants must meet the minimum academic qualification set for each program (please check the specific course page for details) and complete the online or in-person application process before the registration deadline.'],
+                    ['q' => 'How do I apply for a program?', 'a' => 'Browse our Academy page, select a program, and click "Enroll Now" to fill out the enrollment form. You can pay the registration fee via bKash directly from the form.'],
+                    ['q' => 'Is there an entrance exam?', 'a' => 'This depends on the specific program. Please check the individual program details page or contact our admissions office for the latest requirements.'],
+                ],
+            ],
+            [
+                'category' => 'Fees & Payment',
+                'items' => [
+                    ['q' => 'What payment methods are accepted?', 'a' => 'We currently accept payments via bKash for training enrollments and donations. Bank transfer options may be available on request — please contact our office.'],
+                    ['q' => 'Are scholarships available?', 'a' => 'Yes, merit-based scholarships and financial assistance are available for eligible students. Contact our admissions office for details on how to apply.'],
+                    ['q' => 'Can I get a refund if I cancel my enrollment?', 'a' => 'Refund policies vary by program. Please contact our office directly with your invoice number to discuss your specific situation.'],
+                ],
+            ],
+            [
+                'category' => 'Academic & Campus Life',
+                'items' => [
+                    ['q' => 'Do you provide hostel or accommodation facilities?', 'a' => 'Please contact our admissions office directly for current information on accommodation options near the campus.'],
+                    ['q' => 'What is the duration of the Diploma in Nursing program?', 'a' => 'Program duration varies — please check the specific program page under our Academy section for exact details on duration and class schedule.'],
+                    ['q' => 'Do students get hands-on clinical training?', 'a' => 'Yes, our programs combine classroom instruction with hospital-based clinical training to ensure practical, real-world skills.'],
+                ],
+            ],
+            [
+                'category' => 'Careers',
+                'items' => [
+                    ['q' => 'How can I apply for a job opening?', 'a' => 'Visit our Career page to browse current openings. Click "View Details & Apply" on any listing to submit your application online with your CV.'],
+                    ['q' => 'Does the college help with job placement after graduation?', 'a' => 'We maintain relationships with partner hospitals and institutions and support graduates in connecting with employment opportunities where possible.'],
+                ],
+            ],
+        ];
+
+        return view('frontend.pages.faq', compact('faqs'));
     } // End Method
 
     public function BlogList()

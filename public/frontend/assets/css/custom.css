@@ -1,0 +1,12 @@
+.txt_justify{
+    text-align: justify !important;
+}
+
+.logo img {
+    max-width: 50px;
+}
+
+.footer-item__logo a img {
+    max-width: 50px;
+    max-height: 100%;
+}
