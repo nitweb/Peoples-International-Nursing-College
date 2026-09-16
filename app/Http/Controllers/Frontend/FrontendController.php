@@ -57,7 +57,11 @@ class FrontendController extends Controller
 
         $media_videos = MediaVideo::where('status', 'active')->orderBy('published_at', 'desc')->take(6)->get();
 
-        $training_list = Training::where('status', 'active')->latest()->take(3)->get();
+        $training_list = Training::where('status', 'active')->where('category', 'academic_program')->latest()->take(3)->get();
+        if ($training_list->isEmpty()) {
+            // Fallback so the homepage section isn't empty before any academic program is added
+            $training_list = Training::where('status', 'active')->latest()->take(3)->get();
+        }
 
         $notices = Notice::latest()->take(5)->get();
 
@@ -369,8 +373,9 @@ class FrontendController extends Controller
 
     public function TrainingDevelopment()
     {
-        $training_list = Training::where('status', 'active')->latest()->paginate(9);
-        return view('frontend.pages.training_development', compact('training_list'));
+        $academic_programs = Training::where('status', 'active')->where('category', 'academic_program')->latest()->get();
+        $training_list = Training::where('status', 'active')->where('category', 'short_course')->latest()->paginate(9);
+        return view('frontend.pages.training_development', compact('academic_programs', 'training_list'));
     } // End Method
 
     public function TrainingDevelopmentDetails($slug)

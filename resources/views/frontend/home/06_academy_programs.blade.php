@@ -5,14 +5,18 @@
                 <span class="text-main-600 text-2xl d-flex"><i class="ph-bold ph-book-open"></i></span>
                 <h5 class="text-main-600 mb-0">Academy</h5>
             </div>
-            <h2 class="mb-24 wow bounceIn">Our Training &amp; Development Programs</h2>
-            <p class="wow bounceInUp">Build career-ready skills with our professional training and short courses</p>
+            <h2 class="mb-24 wow bounceIn">Our Academic Programs</h2>
+            <p class="wow bounceInUp">BNMC-affiliated diploma and degree programs designed to build career-ready, compassionate nursing professionals</p>
         </div>
 
         @if ($training_list->count())
             <div class="row gy-4">
                 @foreach ($training_list as $training)
-                    @include('frontend.partials.training_card', ['training' => $training])
+                    @if ($training->category === 'academic_program')
+                        @include('frontend.partials.academic_program_card', ['training' => $training])
+                    @else
+                        @include('frontend.partials.training_card', ['training' => $training])
+                    @endif
                 @endforeach
             </div>
 

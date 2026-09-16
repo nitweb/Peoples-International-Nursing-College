@@ -36,6 +36,7 @@
                                                 <th>SN</th>
                                                 <th>Image</th>
                                                 <th>Title</th>
+                                                <th>Category</th>
                                                 <th>Type</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -53,6 +54,13 @@
                                                         @endif
                                                     </td>
                                                     <td>{{ $item->title }}</td>
+                                                    <td>
+                                                        @if ($item->category == 'academic_program')
+                                                            <span class="badge badge-primary">Academic Program</span>
+                                                        @else
+                                                            <span class="badge badge-info">Short Course</span>
+                                                        @endif
+                                                    </td>
                                                     <td>{{ ucfirst($item->type ?? '—') }}</td>
                                                     <td>
                                                         @if ($item->status == 'active')

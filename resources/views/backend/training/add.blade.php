@@ -58,6 +58,19 @@
                                             <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ old('slug') }}">
                                         </div>
 
+                                        {{-- Category --}}
+                                        <div class="col-md-6 mb-3">
+                                            <label class="col-form-label">Category</label>
+                                            <select class="form-control selectric @error('category') is-invalid @enderror" name="category" id="category-select" required data-parsley-required-message="Category is required*">
+                                                <option value="" disabled {{ old('category') ? '' : 'selected' }}>— Select Category —</option>
+                                                <option value="academic_program" {{ old('category') == 'academic_program' ? 'selected' : '' }}>Academic Program (BSc / Diploma / MSc)</option>
+                                                <option value="short_course" {{ old('category') == 'short_course' ? 'selected' : '' }}>Short Course / Training</option>
+                                            </select>
+                                            @error('category')
+                                                <span class="invalid-feedback d-block">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
                                         {{-- Type --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">Academy Type</label>
@@ -88,8 +101,8 @@
 
                                         {{-- Duration --}}
                                         <div class="col-md-6 mb-3">
-                                            <label class="col-form-label">Duration (Hours)</label>
-                                            <input type="number" min="0" class="form-control" name="duration" value="{{ old('duration') }}">
+                                            <label class="col-form-label">Duration</label>
+                                            <input type="text" class="form-control" name="duration" value="{{ old('duration') }}" placeholder="e.g. 40 Hours (short course) or 3 Years (academic program)">
                                         </div>
 
                                         {{-- No. of Classes --}}
@@ -111,6 +124,52 @@
                                             <label class="col-form-label">Registration Fee</label>
                                             <input type="number" min="0" class="form-control" name="registration_fee" value="{{ old('registration_fee') }}">
                                         </div>
+
+                                    </div>
+
+                                    <hr style="border: 1px dashed #999">
+                                    <p class="text-muted mb-2"><strong>Academic Program Details</strong> — fill these only when Category = Academic Program</p>
+
+                                    <div class="form-group row">
+
+                                        {{-- Program Level --}}
+                                        <div class="col-md-6 mb-3">
+                                            <label class="col-form-label">Program Level</label>
+                                            <input type="text" class="form-control" name="program_level" value="{{ old('program_level') }}" placeholder="e.g. Diploma, BSc, Post Basic BSc, MSc">
+                                        </div>
+
+                                        {{-- Affiliation --}}
+                                        <div class="col-md-6 mb-3">
+                                            <label class="col-form-label">Affiliation / Regulatory Body</label>
+                                            <input type="text" class="form-control" name="affiliation" value="{{ old('affiliation') }}" placeholder="e.g. Bangladesh Nursing &amp; Midwifery Council (BNMC), University of Dhaka">
+                                        </div>
+
+                                        {{-- Total Seats --}}
+                                        <div class="col-md-6 mb-3">
+                                            <label class="col-form-label">Total Seats</label>
+                                            <input type="number" min="0" class="form-control" name="total_seats" value="{{ old('total_seats') }}">
+                                        </div>
+
+                                        {{-- Eligibility --}}
+                                        <div class="col-md-12 mb-3">
+                                            <label class="col-form-label">Admission Eligibility</label>
+                                            <textarea name="eligibility" rows="4" class="form-control" placeholder="e.g. SSC/HSC with minimum GPA, subject requirements, age limit">{{ old('eligibility') }}</textarea>
+                                        </div>
+
+                                        {{-- Syllabus PDF --}}
+                                        <div class="col-md-12 mb-3">
+                                            <label class="col-form-label">Syllabus / Curriculum (PDF)</label>
+                                            <input type="file" class="form-control @error('syllabus_file') is-invalid @enderror" name="syllabus_file" accept="application/pdf">
+                                            @error('syllabus_file')
+                                                <span class="invalid-feedback d-block">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+
+                                    <hr style="border: 1px dashed #999">
+
+                                    <div class="form-group row">
 
                                         {{-- Trainers --}}
                                         <div class="col-md-12 mb-3">
