@@ -81,6 +81,7 @@ Route::group(
                 Route::get('/our-leadership', 'OurLeadership')->name('our.leadership');
                 Route::get('/our-partners', 'OurPartners')->name('our.partners');
                 Route::get('/meet-our-team', 'MeetOurTeam')->name('meet.our.team');
+                Route::get('/academic-faculty', 'AcademicFaculty')->name('academic.faculty');
 
                 Route::get('/important-enlistment', 'ImportantEnlistment')->name('important.enlistment');
 

@@ -15,6 +15,12 @@
                     <span class="text-main-600 text-xl d-flex"><i class="ph-bold ph-identification-badge"></i></span>
                     <span class="text-neutral-700 text-md fw-medium">{{ $member->designation }}</span>
                 </div>
+                @if ($member->qualification)
+                    <p class="text-neutral-500 text-sm mt-8 mb-0">{{ $member->qualification }}</p>
+                @endif
+                @if ($member->subject)
+                    <p class="text-neutral-500 text-sm mb-0">{{ $member->subject }}</p>
+                @endif
             </div>
             <div class="pt-16 border-top border-neutral-50 mt-20 border-dashed border-0">
                 <a href="{{ route('frontend.team.details', $member->slug) }}" class="flex-align gap-8 text-main-600 hover-text-decoration-underline transition-1 fw-semibold">

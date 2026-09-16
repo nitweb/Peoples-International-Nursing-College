@@ -13,6 +13,12 @@
                         <div class="p-16 text-center">
                             <h4 class="mb-8">{{ $team->name }}</h4>
                             <span class="text-main-600 fw-medium">{{ $team->designation }}</span>
+                            @if ($team->qualification)
+                                <p class="text-neutral-500 text-sm mt-8 mb-0">{{ $team->qualification }}</p>
+                            @endif
+                            @if ($team->subject)
+                                <p class="text-neutral-500 text-sm mb-0">{{ $team->subject }}</p>
+                            @endif
                         </div>
                     </div>
                 </div>

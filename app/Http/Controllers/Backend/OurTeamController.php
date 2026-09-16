@@ -60,6 +60,8 @@ class OurTeamController extends Controller
             $data->name = $request->name;
             $data->slug = Str::slug($request->name . ' ' . $request->designation);
             $data->designation = $request->designation;
+            $data->qualification = $request->qualification;
+            $data->subject = $request->subject;
             $data->description = $request->description;
             $data->type = $request->type;
             $data->created_by = Auth::user()->id;
@@ -137,6 +139,8 @@ class OurTeamController extends Controller
             $data->name = $request->name;
             $data->slug = Str::slug($request->name . ' ' . $request->designation);
             $data->designation = $request->designation;
+            $data->qualification = $request->qualification;
+            $data->subject = $request->subject;
             $data->description = $request->description;
             $data->type = $request->type;
             $data->status = $request->status;

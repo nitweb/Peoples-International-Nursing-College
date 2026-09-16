@@ -90,7 +90,22 @@
                                                 <option value="top_level" {{ $our_team->type == 'top_level' ? 'selected' : '' }}>Leadership</option>
                                                 <option value="middle_level" {{ $our_team->type == 'middle_level' ? 'selected' : '' }}>Partners</option>
                                                 <option value="student_level" {{ $our_team->type == 'student_level' ? 'selected' : '' }}>Team</option>
+                                                <option value="academic_faculty" {{ $our_team->type == 'academic_faculty' ? 'selected' : '' }}>Academic Faculty</option>
                                             </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-8">
+                                            <label class="col-form-label">Qualification <small class="text-muted">(for Academic Faculty)</small></label>
+                                            <input type="text" class="form-control" name="qualification" value="{{ old('qualification', $our_team->qualification) }}" placeholder="e.g. MSc in Nursing, BNMC Registered Nurse">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-8">
+                                            <label class="col-form-label">Subject / Specialization <small class="text-muted">(for Academic Faculty)</small></label>
+                                            <input type="text" class="form-control" name="subject" value="{{ old('subject', $our_team->subject) }}" placeholder="e.g. Community Health Nursing">
                                         </div>
                                     </div>
 

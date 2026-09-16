@@ -164,6 +164,16 @@ class FrontendController extends Controller
         return view('frontend.pages.meet_our_team', compact('team'));
     } // End Method
 
+    public function AcademicFaculty()
+    {
+        $faculty = OurTeam::where('status', 'active')
+            ->where('type', 'academic_faculty')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('frontend.pages.academic_faculty', compact('faculty'));
+    } // End Method
+
     public function ImportantEnlistment()
     {
         $enlistment = Enlistment::latest()->get()->firstOrFail();

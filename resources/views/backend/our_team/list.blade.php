@@ -63,6 +63,8 @@
                                                             <span>Partners</span>
                                                         @elseif ($item->type == 'student_level')
                                                             <span>Team</span>
+                                                        @elseif ($item->type == 'academic_faculty')
+                                                            <span>Academic Faculty</span>
                                                         @endif
                                                     </td>
                                                     <td>
