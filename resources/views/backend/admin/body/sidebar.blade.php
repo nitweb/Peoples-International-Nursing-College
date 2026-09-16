@@ -4,7 +4,7 @@
 
         <div class="sidebar-brand">
             <a href="{{ route('admin.dashboard') }}" title="People's International Foundation">
-                <img alt="image" src="{{ asset('frontend/assets/images/favicon.png') }}" class="header-logo mt-3" alt="Site Logo" style="height: 50px;" />
+                <img alt="image" src="{{ asset('frontend/assets/images/logo/pinc_logo.png') }}" class="header-logo mt-3" alt="Site Logo" style="width: 50px;height: 75px;margin-bottom: 20px;" />
                 {{-- <span class="logo-name">People's International Foundation</span> --}}
             </a>
         </div>
@@ -36,7 +36,7 @@
                     <span>About Us</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.about-us.list') }}">About Our Company</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.about-us.list') }}">About Us</a></li>
                     <li><a class="nav-link" href="{{ route('admin.our-contents.list') }}">Our Contents</a></li>
                     {{-- <li><a class="nav-link" href="{{ route('admin.enlistment.list') }}">Important Enlistment</a></li> --}}
                     {{-- <li><a class="nav-link" href="{{ route('admin.successful_portfolios.list') }}">Firm Profile</a></li> --}}

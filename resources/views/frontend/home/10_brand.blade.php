@@ -16,11 +16,6 @@
                                 @endif
                             </div>
                         @endforeach
-                        @foreach ($client as $c)
-                            <div class="brand-slider__item px-24">
-                                <img src="{{ asset($c->image) }}" alt="{{ $c->title }}">
-                            </div>
-                        @endforeach
                     </div>
                 </div>
             </div>

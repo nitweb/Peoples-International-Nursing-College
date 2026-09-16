@@ -16,7 +16,7 @@ class AboutUsController extends Controller
 {
     public function AboutUsList()
     {
-        $title = 'About Our Company';
+        $title = 'About Us';
 
         $about_us = AboutUs::where('id', 1)->latest()->take(1)->get();
 
@@ -25,7 +25,7 @@ class AboutUsController extends Controller
 
     public function AboutUsEdit($id)
     {
-        $title = 'About Our Company Edit';
+        $title = 'About Us Edit';
 
         $about_us = AboutUs::where('id', 1)->take(1)->get()->firstOrFail();
 
@@ -92,7 +92,7 @@ class AboutUsController extends Controller
 
     public function AboutMessageList()
     {
-        $title = 'Managing Partner Message';
+        $title = 'Directors Message';
 
         $about_message = AboutUs::where('id', '=', 2)->latest()->take(1)->get();
 
@@ -101,7 +101,7 @@ class AboutUsController extends Controller
 
     public function AboutMessageEdit($id)
     {
-        $title = 'Managing Partner Message Edit';
+        $title = 'Directors Message Edit';
 
         $about_message = AboutUs::where('id', '=', 2)->take(1)->get()->firstOrFail();
 
@@ -155,11 +155,11 @@ class AboutUsController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.about-message.list')->with('success', 'Managing Partner Message Updated Successfully');
+            return redirect()->route('admin.about-message.list')->with('success', 'Directors Message Updated Successfully');
         } catch (\Exception $e) {
             DB::rollBack();
 
-            Log::error('Error occurred while updating Managing Partner Message: ' . $e->getMessage());
+            Log::error('Error occurred while updating Directors Message: ' . $e->getMessage());
 
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();

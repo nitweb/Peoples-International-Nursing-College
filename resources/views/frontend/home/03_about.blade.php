@@ -13,65 +13,15 @@
                 </div>
                 <div class="col-xl-6">
                     <div class="about-three-content">
+
                         <div class="mb-40">
                             <div class="flex-align d-inline-flex gap-8 mb-16 wow bounceInDown">
                                 <span class="text-main-600 text-2xl d-flex"><i class="ph-bold ph-first-aid-kit"></i></span>
                                 <h5 class="text-main-600 mb-0">About Us</h5>
                             </div>
                             <h2 class="mb-24 wow bounceInRight">Peoples International Nursing College</h2>
-                            <div class="text-neutral-500 text-line-4 wow bounceInUp">
-                                {!! Str::limit(strip_tags($about_us->description), 260) !!}
-                            </div>
-                        </div>
-
-                        <div class="grid-cols-2">
-                            <div class="flex-align align-items-start gap-20 animation-item">
-                                <span class="flex-shrink-0 w-60 h-60 flex-center d-inline-flex bg-white text-main-600 text-40 rounded-16 box-shadow-md">
-                                    <i class="ph-bold ph-graduation-cap"></i>
-                                </span>
-                                <div class="flex-grow-1">
-                                    <h6 class="text-neutral-800 text-xl fw-medium mb-8">Diploma in Nursing</h6>
-                                    <div class="flex-align gap-8 text-neutral-500">
-                                        <i class="d-flex text-lg ph-bold ph-clock"></i>
-                                        On Campus
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-align align-items-start gap-20 animation-item">
-                                <span class="flex-shrink-0 w-60 h-60 flex-center d-inline-flex bg-white text-main-600 text-40 rounded-16 box-shadow-md">
-                                    <i class="ph-bold ph-first-aid"></i>
-                                </span>
-                                <div class="flex-grow-1">
-                                    <h6 class="text-neutral-800 text-xl fw-medium mb-8">Clinical Training</h6>
-                                    <div class="flex-align gap-8 text-neutral-500">
-                                        <i class="d-flex text-lg ph-bold ph-clock"></i>
-                                        Hospital Based
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-align align-items-start gap-20 animation-item">
-                                <span class="flex-shrink-0 w-60 h-60 flex-center d-inline-flex bg-white text-main-600 text-40 rounded-16 box-shadow-md">
-                                    <i class="ph-bold ph-certificate"></i>
-                                </span>
-                                <div class="flex-grow-1">
-                                    <h6 class="text-neutral-800 text-xl fw-medium mb-8">Certification</h6>
-                                    <div class="flex-align gap-8 text-neutral-500">
-                                        <i class="d-flex text-lg ph-bold ph-clock"></i>
-                                        Govt. Recognized
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-align align-items-start gap-20 animation-item">
-                                <span class="flex-shrink-0 w-60 h-60 flex-center d-inline-flex bg-white text-main-600 text-40 rounded-16 box-shadow-md">
-                                    <i class="ph-bold ph-users-three"></i>
-                                </span>
-                                <div class="flex-grow-1">
-                                    <h6 class="text-neutral-800 text-xl fw-medium mb-8">Short Trainings</h6>
-                                    <div class="flex-align gap-8 text-neutral-500">
-                                        <i class="d-flex text-lg ph-bold ph-clock"></i>
-                                        Onsite &amp; Online
-                                    </div>
-                                </div>
+                            <div class="text-neutral-500 wow bounceInUp">
+                                {!! Str::limit($about_us->description, 700) !!}
                             </div>
                         </div>
 

@@ -6,7 +6,7 @@
             document.write(new Date().getFullYear());
         </script>
         <a href="#!" target="_blank">
-            {{ siteSetting()->copyright }}
+            {!! siteSetting()->copyright !!}
         </a>
         , All right reserved.
     </div>
