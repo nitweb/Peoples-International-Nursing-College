@@ -141,6 +141,8 @@ class OurTeamController extends Controller
             $data->designation = $request->designation;
             $data->qualification = $request->qualification;
             $data->subject = $request->subject;
+            $data->batch_year = $request->batch_year;
+            $data->current_position = $request->current_position;
             $data->description = $request->description;
             $data->type = $request->type;
             $data->status = $request->status;

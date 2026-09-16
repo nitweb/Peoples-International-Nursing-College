@@ -77,6 +77,17 @@
                 </ul>
             </li>
 
+            <li class="dropdown {{ request()->routeIs(['admin.scholarship.list', 'admin.scholarship.add', 'admin.scholarship.edit']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="award"></i>
+                    <span>Scholarship</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.scholarship.list') }}">Scholarship List</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.scholarship.add') }}">Add Scholarship</a></li>
+                </ul>
+            </li>
+
             <li class="dropdown {{ request()->routeIs(['admin.facility.list', 'admin.facility.add', 'admin.facility.edit']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="grid"></i>

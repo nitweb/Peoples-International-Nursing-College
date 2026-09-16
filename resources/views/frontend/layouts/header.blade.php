@@ -38,6 +38,10 @@
                         </li>
 
                         <li class="nav-menu__item">
+                            <a href="{{ route('frontend.scholarship') }}" class="nav-menu__link">Scholarship</a>
+                        </li>
+
+                        <li class="nav-menu__item">
                             <a href="{{ route('frontend.campus.facilities') }}" class="nav-menu__link">Campus</a>
                         </li>
 
@@ -64,6 +68,9 @@
                                 </li>
                                 <li class="nav-submenu__item">
                                     <a href="{{ route('frontend.academic.faculty') }}" class="nav-submenu__link hover-bg-neutral-30">Academic Faculty</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.alumni') }}" class="nav-submenu__link hover-bg-neutral-30">Alumni</a>
                                 </li>
                                 <li class="nav-submenu__item">
                                     <a href="{{ route('frontend.team.list') }}" class="nav-submenu__link hover-bg-neutral-30">Our Team</a>

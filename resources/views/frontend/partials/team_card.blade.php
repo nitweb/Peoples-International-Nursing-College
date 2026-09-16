@@ -21,6 +21,12 @@
                 @if ($member->subject)
                     <p class="text-neutral-500 text-sm mb-0">{{ $member->subject }}</p>
                 @endif
+                @if ($member->batch_year)
+                    <p class="text-neutral-500 text-sm mt-8 mb-0"><i class="ph-bold ph-graduation-cap"></i> Batch {{ $member->batch_year }}</p>
+                @endif
+                @if ($member->current_position)
+                    <p class="text-neutral-500 text-sm mb-0"><i class="ph-bold ph-briefcase"></i> {{ $member->current_position }}</p>
+                @endif
             </div>
             <div class="pt-16 border-top border-neutral-50 mt-20 border-dashed border-0">
                 <a href="{{ route('frontend.team.details', $member->slug) }}" class="flex-align gap-8 text-main-600 hover-text-decoration-underline transition-1 fw-semibold">

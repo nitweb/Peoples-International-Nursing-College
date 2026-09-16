@@ -19,6 +19,7 @@ use App\Models\Notice;
 use App\Models\OurContents;
 use App\Models\OurTeam;
 use App\Models\Publications;
+use App\Models\Scholarship;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
@@ -172,6 +173,23 @@ class FrontendController extends Controller
             ->get();
 
         return view('frontend.pages.academic_faculty', compact('faculty'));
+    } // End Method
+
+    public function Alumni()
+    {
+        $alumni = OurTeam::where('status', 'active')
+            ->where('type', 'alumni')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('frontend.pages.alumni', compact('alumni'));
+    } // End Method
+
+    public function ScholarshipPage()
+    {
+        $scholarship_list = Scholarship::where('status', 'active')->orderBy('display_order')->orderByDesc('id')->get();
+
+        return view('frontend.pages.scholarship', compact('scholarship_list'));
     } // End Method
 
     public function ImportantEnlistment()
