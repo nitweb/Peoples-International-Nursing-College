@@ -10,6 +10,7 @@ use App\Models\Career;
 use App\Models\Circular;
 use App\Models\Client;
 use App\Models\Enlistment;
+use App\Models\Facility;
 use App\Models\Finance;
 use App\Models\Gallery;
 use App\Models\Institution;
@@ -203,6 +204,13 @@ class FrontendController extends Controller
         $academic_programs = Training::where('status', 'active')->where('category', 'academic_program')->latest()->get();
 
         return view('frontend.pages.admission', compact('admission_info', 'academic_programs'));
+    } // End Method
+
+    public function CampusFacilities()
+    {
+        $facility_list = Facility::where('status', 'active')->orderBy('display_order')->orderByDesc('id')->get();
+
+        return view('frontend.pages.facilities', compact('facility_list'));
     } // End Method
 
     public function Faq()

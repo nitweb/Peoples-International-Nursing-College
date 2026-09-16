@@ -77,6 +77,17 @@
                 </ul>
             </li>
 
+            <li class="dropdown {{ request()->routeIs(['admin.facility.list', 'admin.facility.add', 'admin.facility.edit']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="grid"></i>
+                    <span>Campus & Facilities</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.facility.list') }}">Facility List</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.facility.add') }}">Add Facility</a></li>
+                </ul>
+            </li>
+
             <li class="dropdown {{ request()->routeIs(['admin.admission-info.edit']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="clipboard"></i>

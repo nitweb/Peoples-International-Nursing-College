@@ -37,6 +37,10 @@
                             <a href="{{ route('frontend.admission') }}" class="nav-menu__link">Admission</a>
                         </li>
 
+                        <li class="nav-menu__item">
+                            <a href="{{ route('frontend.campus.facilities') }}" class="nav-menu__link">Campus</a>
+                        </li>
+
                         <li class="nav-menu__item has-submenu">
                             <a href="{{ route('frontend.about.us') }}" class="nav-menu__link">About Us</a>
                             <ul class="nav-submenu scroll-sm">
