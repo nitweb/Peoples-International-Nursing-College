@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\Backend\Admin\AdminController;
+use App\Http\Controllers\Backend\AdmissionInfoController;
 use App\Http\Controllers\Backend\Blog\BlogCategoryController;
 use App\Http\Controllers\Backend\Blog\BlogController;
 use App\Http\Controllers\Backend\CareerController;
@@ -101,6 +102,7 @@ Route::group(
 
                 Route::get('/contact-us', 'ContactUs')->name('contact.us');
                 Route::get('/faq', 'Faq')->name('faq');
+                Route::get('/admission', 'AdmissionInformation')->name('admission');
                 Route::get('/profile', 'showProfile')->name('show.profile');
                 Route::get('/terms-conditions', 'TermsConditions')->name('terms.conditions');
                 Route::get('/privacy-policy', 'PrivacyPolicy')->name('privacy.policy');
@@ -586,6 +588,19 @@ Route::group(
                 Route::get('/list', 'OurContentList')->name('list');
                 Route::get('/edit/{id}', 'OurContentEdit')->name('edit');
                 Route::post('/update', 'OurContentUpdate')->name('update');
+            },
+        );
+
+        // Admission Info All Routes (singleton content)
+        Route::group(
+            [
+                'prefix' => 'admission-info',
+                'controller' => AdmissionInfoController::class,
+                'as' => 'admission-info.',
+            ],
+            function () {
+                Route::get('/edit', 'AdmissionInfoEdit')->name('edit');
+                Route::post('/update', 'AdmissionInfoUpdate')->name('update');
             },
         );
 

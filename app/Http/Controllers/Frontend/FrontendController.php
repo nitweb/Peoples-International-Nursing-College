@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
+use App\Models\AdmissionInfo;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Circular;
@@ -192,6 +193,16 @@ class FrontendController extends Controller
         $site_setting = Setting::firstOrFail();
         $services = Service::where('status', 'active')->latest()->get();
         return view('frontend.pages.contact', compact('site_setting', 'services'));
+    } // End Method
+
+    public function AdmissionInformation()
+    {
+        $admission_info = AdmissionInfo::first();
+
+        // Academic programs shown on the admission page as quick eligibility/seats reference
+        $academic_programs = Training::where('status', 'active')->where('category', 'academic_program')->latest()->get();
+
+        return view('frontend.pages.admission', compact('admission_info', 'academic_programs'));
     } // End Method
 
     public function Faq()
