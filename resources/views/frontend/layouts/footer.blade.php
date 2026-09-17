@@ -148,7 +148,7 @@
                 <div class="bottom-footer__inner flex-center gap-16 flex-wrap">
 
                     <p class="text-white text-line-1 fw-normal" data-aos="zoom-in">
-                        {!! $global_setting->copyright !!}
+                        Copyright © 2026 <a href="javascript:void(0)">{!! $global_setting->copyright !!}</a>. All Rights Reserved. Developed by <a href="https://web.nebulaitbd.com/" target="_blank">Nebula IT</a>.
                     </p>
 
                 </div>

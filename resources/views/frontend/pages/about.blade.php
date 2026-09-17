@@ -14,7 +14,7 @@
                 <div class="row gy-xl-0 gy-5 flex-wrap-reverse align-items-center">
                     <div class="col-xl-6">
                         <div class="about-thumbs position-relative pe-lg-5">
-                            <img src="{{ asset($about_us->about_us_image) }}" alt="About Us" class="rounded-16 w-100" style="max-height: 560px; object-fit: cover;">
+                            <img src="{{ $about_us->about_us_image ? asset($about_us->about_us_image) : asset('frontend/assets/images/thumbs/about-three-img1.png') }}" alt="About Us" class="about-three-thumbs__one rounded-16 w-100" style="object-fit: cover;">
                         </div>
                     </div>
                     <div class="col-xl-6">

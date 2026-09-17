@@ -29,7 +29,7 @@
                             <div class="bg-white rounded-16 border border-neutral-30 overflow-hidden h-100">
                                 @if($category->image)
                                     <a href="{{ route('frontend.donation.details', $category->slug) }}">
-                                        <img src="{{ asset($category->image) }}" alt="{{ $category->title }}" class="w-100" style="height: 200px; object-fit: cover;">
+                                        <img src="{{ asset($category->image) }}" alt="{{ $category->title }}" class="w-100" style="object-fit: cover;">
                                     </a>
                                 @endif
                                 <div class="p-24">
