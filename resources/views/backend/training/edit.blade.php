@@ -37,7 +37,7 @@
 
                                         {{-- Image --}}
                                         <div class="col-md-12 mb-3">
-                                            <label class="col-form-label">Academy Image [850px by 400px]</label>
+                                            <label class="col-form-label">Academy Image [830px by 500px]</label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="training_image" id="image-upload">

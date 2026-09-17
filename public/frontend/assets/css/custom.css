@@ -1,4 +1,4 @@
-.txt_justify{
+.txt_justify {
     text-align: justify !important;
 }
 
@@ -10,6 +10,7 @@
     max-width: 50px;
     max-height: 100%;
 }
+
 /* Prevent header nav labels from wrapping onto multiple lines */
 .nav-menu__link {
     white-space: nowrap;
@@ -19,4 +20,19 @@
     .nav-menu {
         gap: 14px;
     }
+}
+
+/* Nursing College brand palette — derived from the crest logo (navy shield + cyan pages + red cross) */
+:root {
+    --main-h: 213;
+    --main-s: 68%;
+    --main-l: 30%;
+
+    --main-two-h: 189;
+    --main-two-s: 60%;
+    --main-two-l: 48%;
+
+    --main-three-h: 0;
+    --main-three-s: 90%;
+    --main-three-l: 50%;
 }

@@ -3,9 +3,9 @@
     <aside id="sidebar-wrapper">
 
         <div class="sidebar-brand">
-            <a href="{{ route('admin.dashboard') }}" title="People's International Foundation">
+            <a href="{{ route('admin.dashboard') }}" title="Peoples International Nursing College">
                 <img alt="image" src="{{ asset('frontend/assets/images/logo/pinc_logo.png') }}" class="header-logo mt-3" alt="Site Logo" style="width: 50px;height: 75px;margin-bottom: 20px;" />
-                {{-- <span class="logo-name">People's International Foundation</span> --}}
+                {{-- <span class="logo-name">Peoples International Nursing College</span> --}}
             </a>
         </div>
 

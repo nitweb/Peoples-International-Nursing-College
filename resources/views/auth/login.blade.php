@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Login | People's International Foundation</title>
+    <title>Login | Peoples International Nursing College</title>
     {{-- App CSS --}}
     <link rel="stylesheet" href="{{ asset('/backend/assets/css/app.min.css') }}">
     {{-- Bootstrap Social CSS --}}
@@ -16,17 +16,18 @@
     {{-- Custom CSS --}}
     <link rel="stylesheet" href="{{ asset('/backend/assets/css/custom.css') }}">
     {{-- Favicon --}}
-    <link rel='shortcut icon' type='image/x-icon' href='{{ asset('frontend/assets/images/favicons/fav.png') }}' />
+    <link rel='shortcut icon' type='image/x-icon' href='{{ asset('frontend/assets/images/logo/favicon.png') }}' />
 
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
         }
 
         body {
             margin: 0;
             font-family: 'Poppins', 'Nunito', sans-serif;
-            background: linear-gradient(135deg, #0B6B3D 0%, #14904F 45%, #E04237 100%);
+            background: linear-gradient(135deg, #0F3050 0%, #18477F 45%, #67C8D9 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -47,7 +48,7 @@
         .pif-login-brand {
             position: relative;
             flex: 0 0 42%;
-            background: linear-gradient(160deg, #0B6B3D 0%, #14904F 55%, #E04237 130%);
+            background: linear-gradient(160deg, #0F3050 0%, #18477F 55%, #67C8D9 130%);
             padding: 55px 40px;
             display: flex;
             flex-direction: column;
@@ -89,12 +90,12 @@
             border-radius: 12px;
             width: fit-content;
             min-height: 46px;
-            min-width: 46px;
+            min-width: 80px;
         }
 
         .pif-login-brand .brand-logo img {
             max-width: 150px;
-            max-height: 46px;
+            max-height: 70px;
             width: auto;
             height: auto;
             display: block;
@@ -168,7 +169,7 @@
         .pif-input-wrap .input-icon {
             position: absolute;
             left: 16px;
-            color: #0B6B3D;
+            color: #18477F;
             font-size: 15px;
             line-height: 1;
             pointer-events: none;
@@ -188,9 +189,9 @@
 
         .pif-form-group input:focus {
             outline: none;
-            border-color: #0B6B3D;
+            border-color: #18477F;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(11, 107, 61, 0.12);
+            box-shadow: 0 0 0 3px rgba(24, 71, 127, 0.12);
         }
 
         .pif-form-group input:-webkit-autofill,
@@ -204,7 +205,7 @@
         .pif-form-group .invalid-feedback {
             display: none;
             font-size: 12.5px;
-            color: #E04237;
+            color: #E02424;
             margin-top: 6px;
         }
 
@@ -216,15 +217,15 @@
             font-size: 15px;
             font-weight: 600;
             color: #fff;
-            background: linear-gradient(90deg, #0B6B3D, #14904F);
+            background: linear-gradient(90deg, #18477F, #2E7DA8);
             letter-spacing: 0.3px;
             transition: all 300ms ease;
         }
 
         .pif-login-btn:hover {
-            background: linear-gradient(90deg, #E04237, #c93a2f);
+            background: linear-gradient(90deg, #123A5C, #67C8D9);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(224, 66, 55, 0.3);
+            box-shadow: 0 10px 25px rgba(24, 71, 127, 0.3);
         }
 
         @media only screen and (max-width: 767px) {
@@ -251,16 +252,16 @@
 
             <div class="pif-login-brand">
                 <div class="brand-logo">
-                    <img src="{{ asset(siteSetting()->header_logo) }}" alt="Site Logo" onerror="this.replaceWith(Object.assign(document.createElement('span'), {innerText: 'PIF', style: 'font-weight:700;font-size:18px;color:#0B6B3D;padding:0 6px;'}))" style="width: 100%;">
+                    <img src="{{ asset(siteSetting()->header_logo) }}" alt="Site Logo" onerror="this.replaceWith(Object.assign(document.createElement('span'), {innerText: 'PINC', style: 'font-weight:700;font-size:18px;color:#18477F;padding:0 6px;'}))" style="width: 100%;">
                 </div>
 
                 <div class="brand-text">
                     <h2>Welcome to the<br>Admin Dashboard</h2>
-                    <p>Manage services, institutions, donations, blogs and everything that powers People's International Foundation's website — all in one place.</p>
+                    <p>Manage academic programs, admissions, faculty, notices, gallery and everything that powers Peoples International Nursing College's website — all in one place.</p>
                 </div>
 
                 <div class="brand-footer">
-                    &copy; {{ date('Y') }} People's International Foundation. All rights reserved.
+                    &copy; {{ date('Y') }} Peoples International Nursing College. All rights reserved.
                 </div>
             </div>
 

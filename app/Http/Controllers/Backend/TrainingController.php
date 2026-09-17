@@ -94,7 +94,7 @@ class TrainingController extends Controller
                 $img      = $request->file('training_image');
                 $manager  = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
-                $manager->read($img)->resize(850, 400)->toJpeg(80)
+                $manager->read($img)->resize(830, 500)->toJpeg(80)
                     ->save(base_path('public/uploads/trainings/' . $name_gen));
                 $training->training_image = 'uploads/trainings/' . $name_gen;
             }
@@ -204,7 +204,7 @@ class TrainingController extends Controller
                 $img      = $request->file('training_image');
                 $manager  = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
-                $manager->read($img)->resize(850, 400)->toJpeg(80)
+                $manager->read($img)->resize(830, 500)->toJpeg(80)
                     ->save(base_path('public/uploads/trainings/' . $name_gen));
                 $training->training_image = 'uploads/trainings/' . $name_gen;
             }
