@@ -10,3 +10,13 @@
     max-width: 50px;
     max-height: 100%;
 }
+/* Prevent header nav labels from wrapping onto multiple lines */
+.nav-menu__link {
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 1399px) {
+    .nav-menu {
+        gap: 14px;
+    }
+}

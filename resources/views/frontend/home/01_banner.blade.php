@@ -57,7 +57,7 @@
                                 <p class="text-white text-line-2 wow bounceInDown">Quality nursing education built on care, competence, and commitment to community health.</p>
                             </div>
                             <div class="buttons-wrapper flex-align flex-wrap gap-24 mt-40">
-                                <a href="{{ route('frontend.training.development') }}" class="btn btn-main rounded-pill flex-align gap-8 wow bounceInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                                <a href="{{ route('frontend.admission') }}" class="btn btn-main rounded-pill flex-align gap-8 wow bounceInLeft" data-wow-duration="1s" data-wow-delay=".5s">
                                     Apply for Admission
                                     <i class="ph-bold ph-arrow-up-right d-flex text-lg"></i>
                                 </a>

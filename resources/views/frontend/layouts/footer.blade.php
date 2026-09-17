@@ -31,7 +31,10 @@
                                 <a href="{{ route('frontend.training.development') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Academy</a>
                             </li>
                             <li class="mb-16">
-                                <a href="{{ route('frontend.team.list') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Our Team</a>
+                                <a href="{{ route('frontend.admission') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Admission</a>
+                            </li>
+                            <li class="mb-16">
+                                <a href="{{ route('frontend.scholarship') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Scholarship</a>
                             </li>
                             <li class="mb-16">
                                 <a href="{{ route('frontend.career') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Career</a>
@@ -58,6 +61,12 @@
                             </li>
                             <li class="mb-16">
                                 <a href="{{ route('frontend.gallery') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Gallery</a>
+                            </li>
+                            <li class="mb-16">
+                                <a href="{{ route('frontend.campus.facilities') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Campus &amp; Facilities</a>
+                            </li>
+                            <li class="mb-16">
+                                <a href="{{ route('frontend.academic.faculty') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Academic Faculty</a>
                             </li>
                             <li class="mb-0">
                                 <a href="{{ route('frontend.donation.list') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Donation</a>
