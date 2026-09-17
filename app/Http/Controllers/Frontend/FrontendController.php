@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
+use App\Models\AdmissionInfo;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Circular;
 use App\Models\Client;
 use App\Models\Enlistment;
+use App\Models\Facility;
 use App\Models\Finance;
 use App\Models\Gallery;
 use App\Models\Institution;
@@ -17,6 +19,7 @@ use App\Models\Notice;
 use App\Models\OurContents;
 use App\Models\OurTeam;
 use App\Models\Publications;
+use App\Models\Scholarship;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
@@ -57,7 +60,11 @@ class FrontendController extends Controller
 
         $media_videos = MediaVideo::where('status', 'active')->orderBy('published_at', 'desc')->take(6)->get();
 
-        $training_list = Training::where('status', 'active')->latest()->take(3)->get();
+        $training_list = Training::where('status', 'active')->where('category', 'academic_program')->latest()->take(3)->get();
+        if ($training_list->isEmpty()) {
+            // Fallback so the homepage section isn't empty before any academic program is added
+            $training_list = Training::where('status', 'active')->latest()->take(3)->get();
+        }
 
         $notices = Notice::latest()->take(5)->get();
 
@@ -158,6 +165,33 @@ class FrontendController extends Controller
         return view('frontend.pages.meet_our_team', compact('team'));
     } // End Method
 
+    public function AcademicFaculty()
+    {
+        $faculty = OurTeam::where('status', 'active')
+            ->where('type', 'academic_faculty')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('frontend.pages.academic_faculty', compact('faculty'));
+    } // End Method
+
+    public function Alumni()
+    {
+        $alumni = OurTeam::where('status', 'active')
+            ->where('type', 'alumni')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('frontend.pages.alumni', compact('alumni'));
+    } // End Method
+
+    public function ScholarshipPage()
+    {
+        $scholarship_list = Scholarship::where('status', 'active')->orderBy('display_order')->orderByDesc('id')->get();
+
+        return view('frontend.pages.scholarship', compact('scholarship_list'));
+    } // End Method
+
     public function ImportantEnlistment()
     {
         $enlistment = Enlistment::latest()->get()->firstOrFail();
@@ -188,6 +222,23 @@ class FrontendController extends Controller
         $site_setting = Setting::firstOrFail();
         $services = Service::where('status', 'active')->latest()->get();
         return view('frontend.pages.contact', compact('site_setting', 'services'));
+    } // End Method
+
+    public function AdmissionInformation()
+    {
+        $admission_info = AdmissionInfo::first();
+
+        // Academic programs shown on the admission page as quick eligibility/seats reference
+        $academic_programs = Training::where('status', 'active')->where('category', 'academic_program')->latest()->get();
+
+        return view('frontend.pages.admission', compact('admission_info', 'academic_programs'));
+    } // End Method
+
+    public function CampusFacilities()
+    {
+        $facility_list = Facility::where('status', 'active')->orderBy('display_order')->orderByDesc('id')->get();
+
+        return view('frontend.pages.facilities', compact('facility_list'));
     } // End Method
 
     public function Faq()
@@ -369,8 +420,9 @@ class FrontendController extends Controller
 
     public function TrainingDevelopment()
     {
-        $training_list = Training::where('status', 'active')->latest()->paginate(9);
-        return view('frontend.pages.training_development', compact('training_list'));
+        $academic_programs = Training::where('status', 'active')->where('category', 'academic_program')->latest()->get();
+        $training_list = Training::where('status', 'active')->where('category', 'short_course')->latest()->paginate(9);
+        return view('frontend.pages.training_development', compact('academic_programs', 'training_list'));
     } // End Method
 
     public function TrainingDevelopmentDetails($slug)

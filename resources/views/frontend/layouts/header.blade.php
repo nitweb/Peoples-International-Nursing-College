@@ -18,7 +18,7 @@
             <div class="col d-lg-block d-none">
                 <div class="header-menu d-flex justify-content-center">
 
-                   <ul class="nav-menu flex-align ">
+                    <ul class="nav-menu flex-align ">
 
                         <li class="nav-menu__item activePage">
                             <a href="{{ route('index') }}" class="nav-menu__link">Home</a>
@@ -31,6 +31,18 @@
                                     <a href="{{ route('frontend.training.development') }}" class="nav-submenu__link hover-bg-neutral-30">Training &amp; Development</a>
                                 </li>
                             </ul>
+                        </li>
+
+                        <li class="nav-menu__item">
+                            <a href="{{ route('frontend.admission') }}" class="nav-menu__link">Admission</a>
+                        </li>
+
+                        <li class="nav-menu__item">
+                            <a href="{{ route('frontend.scholarship') }}" class="nav-menu__link">Scholarship</a>
+                        </li>
+
+                        <li class="nav-menu__item">
+                            <a href="{{ route('frontend.campus.facilities') }}" class="nav-menu__link">Campus</a>
                         </li>
 
                         <li class="nav-menu__item has-submenu">
@@ -53,6 +65,12 @@
                                 </li>
                                 <li class="nav-submenu__item">
                                     <a href="{{ route('frontend.our.partners') }}" class="nav-submenu__link hover-bg-neutral-30">Our Partners</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.academic.faculty') }}" class="nav-submenu__link hover-bg-neutral-30">Academic Faculty</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.alumni') }}" class="nav-submenu__link hover-bg-neutral-30">Alumni</a>
                                 </li>
                                 <li class="nav-submenu__item">
                                     <a href="{{ route('frontend.team.list') }}" class="nav-submenu__link hover-bg-neutral-30">Our Team</a>

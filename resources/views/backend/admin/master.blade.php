@@ -8,7 +8,7 @@
     <title>@yield('admin_title')</title>
 
     {{-- Favicon Icon --}}
-    <link rel="icon" href="{{ asset('frontend/assets/images/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('frontend/assets/images/logo/favicon.png') }}" type="image/x-icon">
 
     {{-- CDN Links --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

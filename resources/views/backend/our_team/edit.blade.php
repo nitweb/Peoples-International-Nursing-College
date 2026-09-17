@@ -90,7 +90,37 @@
                                                 <option value="top_level" {{ $our_team->type == 'top_level' ? 'selected' : '' }}>Leadership</option>
                                                 <option value="middle_level" {{ $our_team->type == 'middle_level' ? 'selected' : '' }}>Partners</option>
                                                 <option value="student_level" {{ $our_team->type == 'student_level' ? 'selected' : '' }}>Team</option>
+                                                <option value="academic_faculty" {{ $our_team->type == 'academic_faculty' ? 'selected' : '' }}>Academic Faculty</option>
+                                                <option value="alumni" {{ $our_team->type == 'alumni' ? 'selected' : '' }}>Alumni</option>
                                             </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-8">
+                                            <label class="col-form-label">Qualification <small class="text-muted">(for Academic Faculty)</small></label>
+                                            <input type="text" class="form-control" name="qualification" value="{{ old('qualification', $our_team->qualification) }}" placeholder="e.g. MSc in Nursing, BNMC Registered Nurse">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-8">
+                                            <label class="col-form-label">Subject / Specialization <small class="text-muted">(for Academic Faculty)</small></label>
+                                            <input type="text" class="form-control" name="subject" value="{{ old('subject', $our_team->subject) }}" placeholder="e.g. Community Health Nursing">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-8">
+                                            <label class="col-form-label">Batch Year <small class="text-muted">(for Alumni)</small></label>
+                                            <input type="text" class="form-control" name="batch_year" value="{{ old('batch_year', $our_team->batch_year) }}" placeholder="e.g. 2022 or Batch 2019-2022">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mb-4">
+                                        <div class="col-md-8">
+                                            <label class="col-form-label">Current Position <small class="text-muted">(for Alumni)</small></label>
+                                            <input type="text" class="form-control" name="current_position" value="{{ old('current_position', $our_team->current_position) }}" placeholder="e.g. Staff Nurse, Dhaka Medical College Hospital">
                                         </div>
                                     </div>
 

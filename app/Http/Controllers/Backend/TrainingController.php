@@ -41,6 +41,7 @@ class TrainingController extends Controller
             'training_image'         => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'short_description'     => 'required|string|max:250',
             'long_description'      => 'required|string',
+            'category'              => 'required|in:academic_program,short_course',
             'type'                  => 'nullable|in:online,offline',
             'course_start'          => 'nullable|date',
             'registration_deadline' => 'nullable|date',
@@ -51,6 +52,11 @@ class TrainingController extends Controller
             'certification'         => 'nullable|string|max:255',
             'trainer_ids'           => 'nullable|array',
             'trainer_ids.*'         => 'integer|exists:trainers,id',
+            'program_level'         => 'nullable|string|max:100',
+            'eligibility'           => 'nullable|string',
+            'affiliation'           => 'nullable|string|max:255',
+            'total_seats'           => 'nullable|integer|min:0',
+            'syllabus_file'         => 'nullable|file|mimes:pdf|max:5120',
         ]);
 
         if ($validator->fails()) {
@@ -62,6 +68,7 @@ class TrainingController extends Controller
             $training = new Training();
             $training->title                 = $request->title;
             $training->slug                  = Str::slug($request->slug ?: $request->title);
+            $training->category              = $request->category;
             $training->type                  = $request->type;
             $training->course_start          = $request->course_start;
             $training->registration_deadline = $request->registration_deadline;
@@ -77,6 +84,10 @@ class TrainingController extends Controller
             $training->meta_keyword          = $request->meta_keyword;
             $training->status                = 'active';
             $training->created_by            = Auth::id();
+            $training->program_level         = $request->program_level;
+            $training->eligibility           = $request->eligibility;
+            $training->affiliation           = $request->affiliation;
+            $training->total_seats           = $request->total_seats;
 
             // Service Image (960x720)
             if ($request->file('training_image')) {
@@ -96,6 +107,14 @@ class TrainingController extends Controller
                 $manager->read($banner)->toJpeg(80)
                     ->save(base_path('public/uploads/trainings/' . $name_gen));
                 $training->training_banner_image = 'uploads/trainings/' . $name_gen;
+            }
+
+            // Syllabus PDF
+            if ($request->file('syllabus_file')) {
+                $pdf      = $request->file('syllabus_file');
+                $name_gen = hexdec(uniqid()) . '.' . $pdf->getClientOriginalExtension();
+                $pdf->move(base_path('public/uploads/trainings/syllabus'), $name_gen);
+                $training->syllabus_file = 'uploads/trainings/syllabus/' . $name_gen;
             }
 
             $training->save();
@@ -129,6 +148,7 @@ class TrainingController extends Controller
             'short_description'     => 'required|string|max:250',
             'long_description'      => 'required|string',
             'status'                => 'required',
+            'category'              => 'required|in:academic_program,short_course',
             'type'                  => 'nullable|in:online,offline',
             'course_start'          => 'nullable|date',
             'registration_deadline' => 'nullable|date',
@@ -139,6 +159,11 @@ class TrainingController extends Controller
             'certification'         => 'nullable|string|max:255',
             'trainer_ids'           => 'nullable|array',
             'trainer_ids.*'         => 'integer|exists:trainers,id',
+            'program_level'         => 'nullable|string|max:100',
+            'eligibility'           => 'nullable|string',
+            'affiliation'           => 'nullable|string|max:255',
+            'total_seats'           => 'nullable|integer|min:0',
+            'syllabus_file'         => 'nullable|file|mimes:pdf|max:5120',
         ]);
 
         if ($validator->fails()) {
@@ -151,6 +176,7 @@ class TrainingController extends Controller
             $training->title                 = $request->title;
             $training->slug                  = Str::slug($request->slug ?: $request->title);
             $training->status                = $request->status;
+            $training->category              = $request->category;
             $training->type                  = $request->type;
             $training->course_start          = $request->course_start;
             $training->registration_deadline = $request->registration_deadline;
@@ -165,6 +191,10 @@ class TrainingController extends Controller
             $training->meta_description      = $request->meta_description;
             $training->meta_keyword          = $request->meta_keyword;
             $training->updated_by            = Auth::id();
+            $training->program_level         = $request->program_level;
+            $training->eligibility           = $request->eligibility;
+            $training->affiliation           = $request->affiliation;
+            $training->total_seats           = $request->total_seats;
 
             // Service Image
             if ($request->file('training_image')) {
@@ -192,6 +222,17 @@ class TrainingController extends Controller
                 $training->training_banner_image = 'uploads/trainings/' . $name_gen;
             }
 
+            // Syllabus PDF
+            if ($request->file('syllabus_file')) {
+                if ($training->syllabus_file && file_exists(public_path($training->syllabus_file))) {
+                    unlink(public_path($training->syllabus_file));
+                }
+                $pdf      = $request->file('syllabus_file');
+                $name_gen = hexdec(uniqid()) . '.' . $pdf->getClientOriginalExtension();
+                $pdf->move(base_path('public/uploads/trainings/syllabus'), $name_gen);
+                $training->syllabus_file = 'uploads/trainings/syllabus/' . $name_gen;
+            }
+
             $training->save();
             $training->trainers()->sync($request->trainer_ids ?? []);
 
@@ -216,6 +257,9 @@ class TrainingController extends Controller
             }
             if ($training->training_banner_image && file_exists(public_path($training->training_banner_image))) {
                 unlink(public_path($training->training_banner_image));
+            }
+            if ($training->syllabus_file && file_exists(public_path($training->syllabus_file))) {
+                unlink(public_path($training->syllabus_file));
             }
 
             $training->trainers()->detach();

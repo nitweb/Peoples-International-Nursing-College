@@ -15,7 +15,7 @@
 
                     <h2 class="mb-24">{{ $training_details->title }}</h2>
 
-                    @if($training_details->short_description)
+                    @if ($training_details->short_description)
                         <p class="text-neutral-500 fs-5 mb-24">{{ $training_details->short_description }}</p>
                     @endif
 
@@ -23,11 +23,18 @@
                         {!! $training_details->long_description !!}
                     </div>
 
-                    @if($training_details->trainers->count())
+                    @if ($training_details->category === 'academic_program' && $training_details->eligibility)
+                        <div class="mt-48 pt-40 border-top border-neutral-50 border-dashed border-0">
+                            <h4 class="mb-24">Admission Eligibility</h4>
+                            <div class="text-neutral-500">{!! nl2br(e($training_details->eligibility)) !!}</div>
+                        </div>
+                    @endif
+
+                    @if ($training_details->trainers->count())
                         <div class="mt-48 pt-40 border-top border-neutral-50 border-dashed border-0">
                             <h4 class="mb-24">Trainers</h4>
                             <div class="row gy-4">
-                                @foreach($training_details->trainers as $trainer)
+                                @foreach ($training_details->trainers as $trainer)
                                     <div class="col-sm-6">
                                         <a href="{{ route('frontend.trainer.details', $trainer->slug) }}" class="flex-align gap-16 p-16 bg-main-25 rounded-16 border border-neutral-30 text-decoration-none">
                                             <img src="{{ asset($trainer->trainer_image) }}" alt="{{ $trainer->name }}" class="w-64 h-64 rounded-circle object-fit-cover flex-shrink-0">
@@ -46,9 +53,9 @@
                 <div class="col-lg-4">
                     <div class="p-32 bg-main-25 rounded-16 border border-neutral-30 position-sticky" style="top: 24px;">
                         <div class="flex-between gap-8 pb-24 border-bottom border-neutral-50 mb-24 border-dashed border-0">
-                            <span class="text-neutral-500">Regular Fee</span>
+                            <span class="text-neutral-500">{{ $training_details->category === 'academic_program' ? 'Program Fee' : 'Regular Fee' }}</span>
                             <h4 class="mb-0 text-main-two-600">
-                                @if($training_details->regular_fee)
+                                @if ($training_details->regular_fee)
                                     ৳{{ number_format($training_details->regular_fee) }}
                                 @else
                                     Free
@@ -57,37 +64,55 @@
                         </div>
 
                         <ul class="list-unstyled mb-32">
-                            @if($training_details->type)
+                            @if ($training_details->category === 'academic_program' && $training_details->program_level)
+                                <li class="flex-between gap-8 mb-16">
+                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-graduation-cap"></i> Level</span>
+                                    <span class="fw-medium text-neutral-700">{{ $training_details->program_level }}</span>
+                                </li>
+                            @endif
+                            @if ($training_details->category === 'academic_program' && $training_details->affiliation)
+                                <li class="flex-between gap-8 mb-16">
+                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-seal-check"></i> Affiliation</span>
+                                    <span class="fw-medium text-neutral-700 text-end">{{ $training_details->affiliation }}</span>
+                                </li>
+                            @endif
+                            @if ($training_details->category === 'academic_program' && $training_details->total_seats)
+                                <li class="flex-between gap-8 mb-16">
+                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-users-three"></i> Total Seats</span>
+                                    <span class="fw-medium text-neutral-700">{{ $training_details->total_seats }}</span>
+                                </li>
+                            @endif
+                            @if ($training_details->category !== 'academic_program' && $training_details->type)
                                 <li class="flex-between gap-8 mb-16">
                                     <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-chart-bar"></i> Type</span>
                                     <span class="fw-medium text-neutral-700">{{ ucfirst($training_details->type) }}</span>
                                 </li>
                             @endif
-                            @if($training_details->duration)
+                            @if ($training_details->duration)
                                 <li class="flex-between gap-8 mb-16">
                                     <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-clock"></i> Duration</span>
                                     <span class="fw-medium text-neutral-700">{{ $training_details->duration }}</span>
                                 </li>
                             @endif
-                            @if($training_details->no_of_classes)
+                            @if ($training_details->no_of_classes)
                                 <li class="flex-between gap-8 mb-16">
                                     <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-video-camera"></i> Classes</span>
                                     <span class="fw-medium text-neutral-700">{{ $training_details->no_of_classes }}</span>
                                 </li>
                             @endif
-                            @if($training_details->course_start)
+                            @if ($training_details->course_start)
                                 <li class="flex-between gap-8 mb-16">
                                     <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-calendar"></i> Course Start</span>
                                     <span class="fw-medium text-neutral-700">{{ \Carbon\Carbon::parse($training_details->course_start)->format('d M, Y') }}</span>
                                 </li>
                             @endif
-                            @if($training_details->registration_deadline)
+                            @if ($training_details->registration_deadline)
                                 <li class="flex-between gap-8 mb-16">
                                     <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-hourglass"></i> Registration Deadline</span>
                                     <span class="fw-medium text-neutral-700">{{ \Carbon\Carbon::parse($training_details->registration_deadline)->format('d M, Y') }}</span>
                                 </li>
                             @endif
-                            @if($training_details->certification)
+                            @if ($training_details->certification)
                                 <li class="flex-between gap-8">
                                     <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-certificate"></i> Certification</span>
                                     <span class="fw-medium text-neutral-700">{{ $training_details->certification }}</span>
@@ -96,8 +121,14 @@
                         </ul>
 
                         <a href="{{ route('frontend.training.enroll', $training_details->slug) }}" class="btn btn-main rounded-pill w-100 justify-content-center">
-                            Enroll Now
+                            {{ $training_details->category === 'academic_program' ? 'Apply Now' : 'Enroll Now' }}
                         </a>
+
+                        @if ($training_details->syllabus_file)
+                            <a href="{{ asset($training_details->syllabus_file) }}" target="_blank" class="btn btn-outline-main rounded-pill w-100 justify-content-center mt-16">
+                                <i class="ph-bold ph-file-pdf"></i> Download Syllabus
+                            </a>
+                        @endif
                     </div>
                 </div>
 

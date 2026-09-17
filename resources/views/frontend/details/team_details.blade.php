@@ -13,6 +13,18 @@
                         <div class="p-16 text-center">
                             <h4 class="mb-8">{{ $team->name }}</h4>
                             <span class="text-main-600 fw-medium">{{ $team->designation }}</span>
+                            @if ($team->qualification)
+                                <p class="text-neutral-500 text-sm mt-8 mb-0">{{ $team->qualification }}</p>
+                            @endif
+                            @if ($team->subject)
+                                <p class="text-neutral-500 text-sm mb-0">{{ $team->subject }}</p>
+                            @endif
+                            @if ($team->batch_year)
+                                <p class="text-neutral-500 text-sm mt-8 mb-0"><i class="ph-bold ph-graduation-cap"></i> Batch {{ $team->batch_year }}</p>
+                            @endif
+                            @if ($team->current_position)
+                                <p class="text-neutral-500 text-sm mb-0"><i class="ph-bold ph-briefcase"></i> {{ $team->current_position }}</p>
+                            @endif
                         </div>
                     </div>
                 </div>

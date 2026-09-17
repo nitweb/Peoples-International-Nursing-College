@@ -4,7 +4,7 @@
 
         <div class="sidebar-brand">
             <a href="{{ route('admin.dashboard') }}" title="People's International Foundation">
-                <img alt="image" src="{{ asset('frontend/assets/images/favicon.png') }}" class="header-logo mt-3" alt="Site Logo" style="height: 50px;" />
+                <img alt="image" src="{{ asset('frontend/assets/images/logo/pinc_logo.png') }}" class="header-logo mt-3" alt="Site Logo" style="width: 50px;height: 75px;margin-bottom: 20px;" />
                 {{-- <span class="logo-name">People's International Foundation</span> --}}
             </a>
         </div>
@@ -36,7 +36,7 @@
                     <span>About Us</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.about-us.list') }}">About Our Company</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.about-us.list') }}">About Us</a></li>
                     <li><a class="nav-link" href="{{ route('admin.our-contents.list') }}">Our Contents</a></li>
                     {{-- <li><a class="nav-link" href="{{ route('admin.enlistment.list') }}">Important Enlistment</a></li> --}}
                     {{-- <li><a class="nav-link" href="{{ route('admin.successful_portfolios.list') }}">Firm Profile</a></li> --}}
@@ -77,7 +77,39 @@
                 </ul>
             </li>
 
-            {{-- <li class="dropdown {{ request()->routeIs(['admin.finance.list']) ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs(['admin.scholarship.list', 'admin.scholarship.add', 'admin.scholarship.edit']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="award"></i>
+                    <span>Scholarship</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.scholarship.list') }}">Scholarship List</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.scholarship.add') }}">Add Scholarship</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ request()->routeIs(['admin.facility.list', 'admin.facility.add', 'admin.facility.edit']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="grid"></i>
+                    <span>Campus & Facilities</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.facility.list') }}">Facility List</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.facility.add') }}">Add Facility</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ request()->routeIs(['admin.admission-info.edit']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="clipboard"></i>
+                    <span>Admission</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.admission-info.edit') }}">Admission Information</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown {{ request()->routeIs(['admin.finance.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
                     <span>Finance Support</span>
@@ -85,9 +117,9 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.finance.list') }}">Finance Support</a></li>
                 </ul>
-            </li> --}}
+            </li>
 
-            {{-- <li class="dropdown {{ request()->routeIs('admin.trainer.list') ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs('admin.trainer.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
                     <span>Trainers</span>
@@ -95,19 +127,19 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.trainer.list') }}">Trainer List</a></li>
                 </ul>
-            </li> --}}
+            </li>
 
-            {{-- <li class="dropdown {{ request()->routeIs(['admin.training.list']) ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs(['admin.training.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
-                    <span>Professional Academy</span>
+                    <span>Academy</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.training.list') }}">Academy List</a></li>
                 </ul>
-            </li> --}}
+            </li>
 
-            {{-- <li class="dropdown {{ request()->routeIs(['admin.training.enrollment.list']) ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs(['admin.training.enrollment.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
                     <span>Training Enrollments</span>
@@ -115,7 +147,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.training.enrollment.list') }}">Training Enrollment List</a></li>
                 </ul>
-            </li> --}}
+            </li>
 
             {{-- <li class="dropdown {{ request()->routeIs('admin.testimonial.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">

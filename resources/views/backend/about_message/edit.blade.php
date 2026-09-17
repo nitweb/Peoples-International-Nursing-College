@@ -44,12 +44,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row mb-4">
+                                    {{-- <div class="form-group row mb-4">
                                         <div class="col-md-8">
                                             <label class="col-form-label">Short Description</label>
                                             <textarea class="summernote" name="short_description" required data-parsley-required-message="Short Description is required*">{{ $about_message->short_description }}</textarea>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
