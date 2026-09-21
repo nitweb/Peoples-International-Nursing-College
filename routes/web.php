@@ -93,7 +93,6 @@ Route::group(
                 Route::get('/client', 'Client')->name('client');
 
                 Route::get('/gallery', 'Gallery')->name('gallery');
-                Route::get('/gallery/{id}', 'GalleryDetails')->name('gallery.details');
 
                 Route::get('/career', 'Career')->name('career');
                 Route::get('/career-details/{slug}', 'CareerDetails')->name('career.details');

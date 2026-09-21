@@ -44,7 +44,7 @@
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
                                             <label class="col-form-label">Title</label>
-                                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('name') }}" data-parsley-required-message="Title is required*" required>
+                                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('name') }}" data-parsley-required-message="Title is required*">
                                         </div>
                                     </div>
 

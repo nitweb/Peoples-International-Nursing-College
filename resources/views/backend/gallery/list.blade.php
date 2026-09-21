@@ -48,7 +48,7 @@
                                                 <tr>
                                                     <td>{{ $galleries->count() - $key }}</td>
                                                     <td>
-                                                        <div class="table_about_us_list_image" style="background-image: url({{ asset($item->image) }});"></div>
+                                                        <div class="table_slider_list_image" style="background-image: url({{ asset($item->image) }});"></div>
                                                     </td>
                                                     <td>{{ $item->title }}</td>
                                                     <td>

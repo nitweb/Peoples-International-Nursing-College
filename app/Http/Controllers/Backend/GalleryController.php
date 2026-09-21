@@ -36,11 +36,10 @@ class GalleryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title' => 'required|max:100',
+                'title' => 'nullable|max:100',
                 'image' => 'required|image|max:1024',
             ],
             [
-                'title.required' => 'Title is required',
                 'title.max' => 'Title is too long',
                 'image.required' => 'Image is required',
                 'image.image' => 'Image must be an image',
@@ -98,13 +97,12 @@ class GalleryController extends Controller
             $request->all(),
             [
                 'id' => 'required|integer',
-                'title' => 'required|max:100',
+                'title' => 'nullable|max:100',
                 'status' => 'required',
                 'image' => 'image|max:1024',
             ],
             [
                 'id.required' => 'ID is required',
-                'title.required' => 'Title is required',
                 'title.max' => 'Title is too long',
                 'status.required' => 'Status is required',
                 'image.image' => 'Image must be an image',
