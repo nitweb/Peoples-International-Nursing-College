@@ -10,12 +10,14 @@
 
         .stats-card {
             transition: all 0.25s ease-in-out;
-            border-radius: 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(15, 48, 80, 0.08);
         }
 
         a .stats-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 24px rgba(15, 48, 80, 0.12);
+            border-color: rgba(24, 71, 127, 0.25);
         }
 
         a {
@@ -30,9 +32,35 @@
             cursor: pointer;
         }
 
+        /* Brand gradient — matches the admin login screen (navy -> blue -> cyan) */
         .gradient-banner {
-            background: linear-gradient(90deg, #0B6B3D, #E04237);
-            border-radius: 15px;
+            background: linear-gradient(135deg, #0F3050 0%, #18477F 45%, #67C8D9 100%);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-banner:before,
+        .gradient-banner:after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+
+        .gradient-banner:before {
+            width: 220px;
+            height: 220px;
+            top: -70px;
+            right: 60px;
+        }
+
+        .gradient-banner:after {
+            width: 150px;
+            height: 150px;
+            bottom: -60px;
+            right: -30px;
         }
 
         .hover-scale {
@@ -45,14 +73,16 @@
         }
 
         .visit_card_btn {
-            background-color: #0B6B3D;
-            border-color: #0B6B3D;
+            background: linear-gradient(90deg, #18477F, #2E7DA8);
+            border: none;
             color: #fff !important;
+            position: relative;
+            z-index: 1;
         }
 
         .visit_card_btn:hover {
-            background-color: #fff !important;
-            color: #0B6B3D !important;
+            background: linear-gradient(90deg, #123A5C, #67C8D9) !important;
+            color: #fff !important;
         }
 
         /* Enrollment status badges */
@@ -68,6 +98,16 @@
             font-weight: 600;
             padding: 2px 8px;
             border-radius: 20px;
+        }
+
+        .stats-card .card-content h5 {
+            color: #18477F;
+            font-weight: 600;
+        }
+
+        .stats-card .card-content h2 {
+            color: #0F3050;
+            font-weight: 700;
         }
     </style>
 
@@ -93,11 +133,11 @@
             <div class="row mb-3 mt-3">
                 <div class="col-12">
                     <div class="card border-0 shadow-sm gradient-banner text-white p-4 d-flex flex-md-row flex-column align-items-center justify-content-between">
-                        <div class="mb-3 mb-md-0">
+                        <div class="mb-3 mb-md-0" style="position: relative; z-index: 1;">
                             <h4 class="fw-bold mb-1 text-white">View Your Website</h4>
                             <p class="mb-0 opacity-75">Click below to open the live frontend of your site.</p>
                         </div>
-                        <a href="{{ route('index') }}" target="_blank" class="btn btn-light fw-semibold px-4 py-2 rounded-pill shadow-sm hover-scale visit_card_btn">
+                        <a href="{{ route('index') }}" target="_blank" class="btn fw-semibold px-4 py-2 rounded-pill shadow-sm hover-scale visit_card_btn">
                             🌐 Visit Frontend
                         </a>
                     </div>

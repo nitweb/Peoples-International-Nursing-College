@@ -77,34 +77,12 @@
                             </ul>
                         </li>
 
-                        <li class="nav-menu__item has-submenu">
-                            <a href="javascript:void(0)" class="nav-menu__link">Notices</a>
-                            <ul class="nav-submenu scroll-sm">
-                                <li class="nav-submenu__item">
-                                    <a href="{{ route('frontend.notice.list') }}" class="nav-submenu__link hover-bg-neutral-30">Notice</a>
-                                </li>
-                                <li class="nav-submenu__item">
-                                    <a href="{{ route('frontend.notice.circular') }}" class="nav-submenu__link hover-bg-neutral-30">Notice &amp; Circular</a>
-                                </li>
-                                <li class="nav-submenu__item">
-                                    <a href="{{ route('frontend.publications') }}" class="nav-submenu__link hover-bg-neutral-30">Publications</a>
-                                </li>
-                            </ul>
+                        <li class="nav-menu__item">
+                            <a href="{{ route('frontend.notice.list') }}" class="nav-menu__link">Notice</a>
                         </li>
 
-                        <li class="nav-menu__item has-submenu">
-                            <a href="javascript:void(0)" class="nav-menu__link">Media</a>
-                            <ul class="nav-submenu scroll-sm">
-                                <li class="nav-submenu__item">
-                                    <a href="{{ route('frontend.gallery') }}" class="nav-submenu__link hover-bg-neutral-30">Gallery</a>
-                                </li>
-                                <li class="nav-submenu__item">
-                                    <a href="{{ route('frontend.media') }}" class="nav-submenu__link hover-bg-neutral-30">Media</a>
-                                </li>
-                                <li class="nav-submenu__item">
-                                    <a href="{{ route('frontend.blog.list') }}" class="nav-submenu__link hover-bg-neutral-30">Blog</a>
-                                </li>
-                            </ul>
+                        <li class="nav-menu__item">
+                            <a href="{{ route('frontend.contact.us') }}" class="nav-menu__link">Contact</a>
                         </li>
 
                         <li class="nav-menu__item has-submenu">
@@ -114,13 +92,19 @@
                                     <a href="{{ route('frontend.all.services.list') }}" class="nav-submenu__link hover-bg-neutral-30">Services</a>
                                 </li>
                                 <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.gallery') }}" class="nav-submenu__link hover-bg-neutral-30">Gallery</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.media') }}" class="nav-submenu__link hover-bg-neutral-30">Media</a>
+                                </li>
+                                <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.blog.list') }}" class="nav-submenu__link hover-bg-neutral-30">Blog</a>
+                                </li>
+                                <li class="nav-submenu__item">
                                     <a href="{{ route('frontend.career') }}" class="nav-submenu__link hover-bg-neutral-30">Career</a>
                                 </li>
                                 <li class="nav-submenu__item">
                                     <a href="{{ route('frontend.donation.list') }}" class="nav-submenu__link hover-bg-neutral-30">Donation</a>
-                                </li>
-                                <li class="nav-submenu__item">
-                                    <a href="{{ route('frontend.contact.us') }}" class="nav-submenu__link hover-bg-neutral-30">Contact</a>
                                 </li>
                                 <li class="nav-submenu__item">
                                     <a href="{{ route('frontend.faq') }}" class="nav-submenu__link hover-bg-neutral-30">FAQ</a>

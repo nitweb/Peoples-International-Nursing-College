@@ -36,3 +36,115 @@
     --main-three-s: 90%;
     --main-three-l: 50%;
 }
+
+/* ==========================================================================
+   Admin-entered rich content (ul / ol / table) visibility fix
+   Applies wherever WYSIWYG content from the admin panel is rendered on the
+   frontend (service details, blog details, about us, notices, admission,
+   training, scholarship, facilities, etc.) — all of these are wrapped in a
+   ".text-neutral-500" content container.
+   ========================================================================== */
+
+.text-neutral-500 ul,
+.text-neutral-500 ol {
+    margin: 0 0 20px;
+    padding-left: 24px;
+}
+
+.text-neutral-500 ul {
+    list-style: disc outside;
+}
+
+.text-neutral-500 ul ul {
+    list-style: circle outside;
+    margin-bottom: 0;
+}
+
+.text-neutral-500 ol {
+    list-style: decimal outside;
+}
+
+.text-neutral-500 ol ol {
+    list-style: lower-alpha outside;
+    margin-bottom: 0;
+}
+
+.text-neutral-500 li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.text-neutral-500 li:last-child {
+    margin-bottom: 0;
+}
+
+.text-neutral-500 li > ul,
+.text-neutral-500 li > ol {
+    margin-top: 8px;
+}
+
+/* Tables: force a visible grid, since the theme's base reset strips borders
+   and border-collapse, plus make them horizontally scrollable on small
+   screens instead of overflowing / breaking the layout. */
+.text-neutral-500 table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 0 0 24px;
+    font-size: 15px;
+}
+
+.text-neutral-500 table thead,
+.text-neutral-500 table tbody,
+.text-neutral-500 table tr {
+    display: revert;
+}
+
+.text-neutral-500 table th,
+.text-neutral-500 table td {
+    border: 1px solid #e0e3e8;
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.text-neutral-500 table th {
+    background-color: #f5f7fa;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.text-neutral-500 table tbody tr:nth-child(even) {
+    background-color: #fafbfc;
+}
+
+/* Basic spacing for other common WYSIWYG output so it doesn't visually
+   collapse into the surrounding paragraph text */
+.text-neutral-500 p {
+    margin-bottom: 16px;
+}
+
+.text-neutral-500 h1,
+.text-neutral-500 h2,
+.text-neutral-500 h3,
+.text-neutral-500 h4,
+.text-neutral-500 h5,
+.text-neutral-500 h6 {
+    margin: 24px 0 12px;
+    font-weight: 600;
+}
+
+.text-neutral-500 blockquote {
+    margin: 0 0 20px;
+    padding: 12px 20px;
+    border-left: 4px solid var(--main-600, #1e5a8e);
+    background-color: #f5f7fa;
+    font-style: italic;
+}
+
+.text-neutral-500 img {
+    max-width: 100%;
+    height: auto;
+}

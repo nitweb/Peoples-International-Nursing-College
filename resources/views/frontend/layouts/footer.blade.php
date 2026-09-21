@@ -54,10 +54,7 @@
                                 <a href="{{ route('frontend.notice.list') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Notice</a>
                             </li>
                             <li class="mb-16">
-                                <a href="{{ route('frontend.notice.circular') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Notice &amp; Circular</a>
-                            </li>
-                            <li class="mb-16">
-                                <a href="{{ route('frontend.publications') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Publications</a>
+                                <a href="{{ route('frontend.all.services.list') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Services</a>
                             </li>
                             <li class="mb-16">
                                 <a href="{{ route('frontend.gallery') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Gallery</a>
@@ -154,11 +151,20 @@
 
             <div class="container container-two">
 
-                <div class="bottom-footer__inner flex-center gap-16 flex-wrap">
+                <div class="bottom-footer__inner flex-center gap-16 flex-wrap justify-content-between">
 
-                    <p class="text-white text-line-1 fw-normal" data-aos="zoom-in">
+                    <p class="text-white text-line-1 fw-normal mb-0" data-aos="zoom-in">
                         Copyright © 2026 <a href="javascript:void(0)">{!! $global_setting->copyright !!}</a>. All Rights Reserved. Developed by <a href="https://web.nebulaitbd.com/" target="_blank">Nebula IT</a>.
                     </p>
+
+                    <ul class="d-flex align-items-center gap-24 mb-0" style="list-style: none; padding-left: 0;">
+                        <li>
+                            <a href="{{ route('frontend.privacy.policy') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('frontend.terms.conditions') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Terms &amp; Conditions</a>
+                        </li>
+                    </ul>
 
                 </div>
 

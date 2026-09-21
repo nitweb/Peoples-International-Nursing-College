@@ -4,6 +4,14 @@
 
     @php
         $detail = $service->serviceDetail;
+
+        $imgPath = asset('frontend/assets/images/thumbs/course-img1.png');
+
+        if ($detail && $detail->service_banner_image && file_exists(public_path($detail->service_banner_image))) {
+            $imgPath = asset($detail->service_banner_image);
+        } elseif ($detail && $detail->service_image && file_exists(public_path($detail->service_image))) {
+            $imgPath = asset($detail->service_image);
+        }
     @endphp
 
     @include('frontend.partials.breadcrumb', ['title' => $service->title, 'parent' => 'Our Services', 'parent_url' => route('frontend.all.services.list')])
@@ -14,7 +22,7 @@
 
                 <div class="col-lg-8">
                     <div class="rounded-16 overflow-hidden mb-32">
-                        <img src="{{ $detail && $detail->service_banner_image ? asset($detail->service_banner_image) : ($detail && $detail->service_image ? asset($detail->service_image) : asset('frontend/assets/images/thumbs/course-img1.png')) }}" alt="{{ $service->title }}" class="w-100 rounded-16" style="max-height: 420px; object-fit: cover;">
+                        <img src="{{ $imgPath }}" alt="{{ $service->title }}" class="w-100 rounded-16" style="aspect-ratio: 830/500; object-fit: cover;">
                     </div>
 
                     <h2 class="mb-24">{{ $service->title }}</h2>
