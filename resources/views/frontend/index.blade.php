@@ -23,13 +23,15 @@
     {{-- Choose Us / Notices Section --}}
     @include('frontend.home.07_choose_us')
 
+    @include('frontend.home.08_services')
+
     {{-- Testimonials Section --}}
-    @include('frontend.home.08_testimonials')
+    @include('frontend.home.09_testimonials')
 
     {{-- Blog Section --}}
-    @include('frontend.home.09_blog')
+    @include('frontend.home.10_blog')
 
     {{-- Brand Section --}}
-    @include('frontend.home.10_brand')
+    @include('frontend.home.11_brand')
 
 @endsection

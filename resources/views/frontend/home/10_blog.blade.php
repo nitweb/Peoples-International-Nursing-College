@@ -1,4 +1,4 @@
-<section class="blog-two py-120 bg-main-25">
+<section class="blog-two py-120">
     <div class="container">
         <div class="section-heading text-center">
             <div class="flex-align d-inline-flex gap-8 mb-16 wow bounceInDown">

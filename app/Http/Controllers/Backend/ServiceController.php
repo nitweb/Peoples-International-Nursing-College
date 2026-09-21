@@ -88,7 +88,7 @@ class ServiceController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $service_image->getClientOriginalExtension();
                 $image = $manager->read($service_image);
-                $image->resize(1290, 550);
+                $image->resize(830, 500);
                 $image->toJpeg(80)->save(base_path('public/uploads/services/' . $name_gen));
                 $serviceDetails->service_image = 'uploads/services/' . $name_gen;
             }
@@ -179,7 +179,7 @@ class ServiceController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $service_image->getClientOriginalExtension();
                 $image = $manager->read($service_image);
-                $image->resize(1290, 550);
+                $image->resize(830, 500);
                 $image->toJpeg(80)->save(base_path('public/uploads/services/' . $name_gen));
                 $serviceDetails->service_image = 'uploads/services/' . $name_gen;
             }
