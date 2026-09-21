@@ -50,7 +50,7 @@
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
-                                            <label class="col-form-label">Blog Image [1920px by 550px]</label>
+                                            <label class="col-form-label">Blog Image [830px by 500px]</label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="blog_image" id="image-upload">

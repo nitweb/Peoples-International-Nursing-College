@@ -56,16 +56,16 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ request()->routeIs(['admin.service.list', 'admin.client.list']) ? 'active' : '' }}">
+            {{-- <li class="dropdown {{ request()->routeIs(['admin.service.list', 'admin.client.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
                     <span>Services</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.service.list') }}">Services List</a></li>
-                    {{-- <li><a class="nav-link" href="{{ route('admin.client.list') }}">Our Clients</a></li> --}}
+                    <li><a class="nav-link" href="{{ route('admin.client.list') }}">Our Clients</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="dropdown {{ request()->routeIs(['admin.institution.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -149,7 +149,7 @@
                 </ul>
             </li>
 
-            {{-- <li class="dropdown {{ request()->routeIs('admin.testimonial.list') ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs('admin.testimonial.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="star"></i>
                     <span>Testimonials</span>
@@ -157,7 +157,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.testimonial.list') }}">Testimonial List</a></li>
                 </ul>
-            </li> --}}
+            </li>
 
             <li class="dropdown {{ request()->routeIs(['admin.blog-category.list', 'admin.blog.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
@@ -180,7 +180,7 @@
                 </ul>
             </li>
 
-            {{-- <li class="dropdown {{ request()->routeIs(['admin.gallery.list']) ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs(['admin.gallery.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="list"></i>
                     <span>Gallery</span>
@@ -188,7 +188,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.gallery.list') }}">Gallery List</a></li>
                 </ul>
-            </li> --}}
+            </li>
 
             <li class="dropdown {{ request()->routeIs(['admin.media_video.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">

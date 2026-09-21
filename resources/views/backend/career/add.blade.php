@@ -29,7 +29,7 @@
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
-                                            <label class="col-form-label">Image [416px by 280px]</label>
+                                            <label class="col-form-label">Image [830px by 500px]</label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="career_image" id="image-upload" required data-parsley-required-message="Image is required*" />
@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label class="col-form-label">Job Type</label>
-                                            <select name="job_type" class="form-control" required>
+                                            <select name="job_type" class="form-control selectric" required>
                                                 <option value="full-time" {{ old('job_type') == 'full-time' ? 'selected' : '' }}>Full-time</option>
                                                 <option value="part-time" {{ old('job_type') == 'part-time' ? 'selected' : '' }}>Part-time</option>
                                                 <option value="internship" {{ old('job_type') == 'internship' ? 'selected' : '' }}>Internship</option>

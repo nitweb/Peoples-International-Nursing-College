@@ -108,7 +108,7 @@
                                         {{-- No. of Classes --}}
                                         <div class="col-md-6 mb-3">
                                             <label class="col-form-label">No. of Classes</label>
-                                            <input type="number" min="1" class="form-control" name="no_of_classes" value="{{ old('no_of_classes') }}">
+                                            <input type="text" class="form-control" name="no_of_classes" value="{{ old('no_of_classes') }}">
                                         </div>
 
                                         {{-- Regular Fee --}}
