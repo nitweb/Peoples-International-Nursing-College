@@ -23,7 +23,12 @@ class BkashService
         $this->password = (string) config('bkash.password');
     }
 
-    // Step 1: Get token (id_token). Cache it for 55 minutes so we don't ask again and again.
+    /**
+     * Step 1: Get bKash ID Token.
+     *
+     * Token is cached for 55 minutes to avoid requesting
+     * a new token for every payment.
+     */
     public function getToken(): ?string
     {
         $token = Cache::get('bkash_id_token');
@@ -42,18 +47,32 @@ class BkashService
             'app_secret' => $this->appSecret,
         ]);
 
-        $body = $response->json();
+        $body = $response->json() ?? [];
 
-        if (! $response->successful() || empty($body['id_token'])) {
-            Log::error('bKash token grant failed', ['response' => $body]);
+        if (
+            ! $response->successful() ||
+            empty($body['id_token'])
+        ) {
+            Log::error('bKash token grant failed', [
+                'status' => $response->status(),
+                'response' => $body,
+            ]);
+
             return null;
         }
 
-        Cache::put('bkash_id_token', $body['id_token'], now()->addMinutes(55));
+        Cache::put(
+            'bkash_id_token',
+            $body['id_token'],
+            now()->addMinutes(55)
+        );
 
         return $body['id_token'];
     }
 
+    /**
+     * Common headers for authenticated bKash API requests.
+     */
     protected function headers(): array
     {
         return [
@@ -64,9 +83,17 @@ class BkashService
         ];
     }
 
-    // Step 2: Create payment. Returns bKash response (has 'bkashURL' to redirect user to).
-    public function createPayment(string $invoiceNo, float $amount, string $callbackUrl): array
-    {
+    /**
+     * Step 2: Create bKash payment.
+     *
+     * Returns the bKash API response.
+     * Successful response normally contains "bkashURL".
+     */
+    public function createPayment(
+        string $invoiceNo,
+        float $amount,
+        string $callbackUrl
+    ): array {
         $response = Http::withHeaders($this->headers())
             ->post("{$this->baseUrl}/tokenized/checkout/create", [
                 'mode' => '0011',
@@ -80,14 +107,32 @@ class BkashService
 
         $body = $response->json() ?? [];
 
-        if (! $response->successful()) {
-            Log::error('bKash create payment failed', ['response' => $body]);
+        /*
+         * bKash can return HTTP 200 even when the payment
+         * creation fails at the application level.
+         *
+         * 0000 = successful response.
+         */
+        $isApplicationError =
+            isset($body['statusCode']) &&
+            $body['statusCode'] !== '0000';
+
+        if (! $response->successful() || $isApplicationError) {
+            Log::error('bKash create payment failed', [
+                'status' => $response->status(),
+                'response' => $body,
+            ]);
         }
 
         return $body;
     }
 
-    // Step 3: Execute payment after user completes it on bKash's page.
+    /**
+     * Step 3: Execute bKash payment.
+     *
+     * This should be called after the customer completes
+     * the payment on the bKash checkout page.
+     */
     public function executePayment(string $paymentId): array
     {
         $response = Http::withHeaders($this->headers())
@@ -97,8 +142,15 @@ class BkashService
 
         $body = $response->json() ?? [];
 
-        if (! $response->successful()) {
-            Log::error('bKash execute payment failed', ['response' => $body]);
+        $isApplicationError =
+            isset($body['statusCode']) &&
+            $body['statusCode'] !== '0000';
+
+        if (! $response->successful() || $isApplicationError) {
+            Log::error('bKash execute payment failed', [
+                'status' => $response->status(),
+                'response' => $body,
+            ]);
         }
 
         return $body;
