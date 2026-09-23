@@ -46,7 +46,7 @@ class TrainingController extends Controller
             'course_start'          => 'nullable|date',
             'registration_deadline' => 'nullable|date',
             'duration'              => 'nullable|string|max:100',
-            'no_of_classes'         => 'nullable|integer|min:0',
+            'no_of_classes'         => 'nullable|string',
             'registration_fee'      => 'nullable|integer|min:0',
             'regular_fee'           => 'nullable|integer|min:0',
             'certification'         => 'nullable|string|max:255',
@@ -94,7 +94,7 @@ class TrainingController extends Controller
                 $img      = $request->file('training_image');
                 $manager  = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
-                $manager->read($img)->resize(850, 400)->toJpeg(80)
+                $manager->read($img)->resize(830, 500)->toJpeg(80)
                     ->save(base_path('public/uploads/trainings/' . $name_gen));
                 $training->training_image = 'uploads/trainings/' . $name_gen;
             }
@@ -153,7 +153,7 @@ class TrainingController extends Controller
             'course_start'          => 'nullable|date',
             'registration_deadline' => 'nullable|date',
             'duration'              => 'nullable|string|max:100',
-            'no_of_classes'         => 'nullable|integer|min:0',
+            'no_of_classes'         => 'nullable|string',
             'registration_fee'      => 'nullable|integer|min:0',
             'regular_fee'           => 'nullable|integer|min:0',
             'certification'         => 'nullable|string|max:255',
@@ -204,7 +204,7 @@ class TrainingController extends Controller
                 $img      = $request->file('training_image');
                 $manager  = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
-                $manager->read($img)->resize(850, 400)->toJpeg(80)
+                $manager->read($img)->resize(830, 500)->toJpeg(80)
                     ->save(base_path('public/uploads/trainings/' . $name_gen));
                 $training->training_image = 'uploads/trainings/' . $name_gen;
             }

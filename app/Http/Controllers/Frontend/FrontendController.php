@@ -210,13 +210,6 @@ class FrontendController extends Controller
         return view('frontend.pages.gallery', compact('gallery'));
     } // End Method
 
-    public function GalleryDetails($slug)
-    {
-        $gallery = Gallery::findOrfail($slug);
-
-        return view('frontend.details.gallery_details', compact('gallery'));
-    } // End Method
-
     public function ContactUs()
     {
         $site_setting = Setting::firstOrFail();

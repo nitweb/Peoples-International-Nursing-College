@@ -88,7 +88,7 @@ class BlogController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $blog_image->getClientOriginalExtension();
                 $image = $manager->read($blog_image);
-                $image->resize(1920, 550);
+                $image->resize(830, 500);
                 $image->toJpeg(80)->save(base_path('public/uploads/blog/' . $name_gen));
                 $blogDetails->blog_image = 'uploads/blog/' . $name_gen;
             }
@@ -183,7 +183,7 @@ class BlogController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $blog_image->getClientOriginalExtension();
                 $image = $manager->read($blog_image);
-                $image->resize(1920, 550);
+                $image->resize(830, 500);
                 $image->toJpeg(80)->save(base_path('public/uploads/blog/' . $name_gen));
                 $blogDetails->blog_image = 'uploads/blog/' . $name_gen;
             }

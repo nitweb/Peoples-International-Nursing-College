@@ -12,15 +12,20 @@
             </div>
 
             @if($gallery->count())
-                <div class="row gy-4">
+                <div class="row gy-4 gallery__wrapper">
                     @foreach($gallery as $item)
                         <div class="col-lg-4 col-sm-6">
-                            <a href="{{ route('frontend.gallery.details', $item->id) }}" class="d-block position-relative rounded-12 overflow-hidden group">
+                            <div class="masonry__item d-block position-relative rounded-12 overflow-hidden group">
                                 <img src="{{ asset($item->image) }}" alt="{{ $item->title }}" class="w-100 cover-img transition-2" style="height: 260px; object-fit: cover;">
                                 <span class="position-absolute inset-block-end-0 inset-inline-start-0 w-100 p-20 text-white" style="background: linear-gradient(to top, rgba(0,0,0,.65), transparent);">
                                     <span class="fw-medium">{{ $item->title }}</span>
                                 </span>
-                            </a>
+                                <a href="{{ asset($item->image) }}" title="{{ $item->title }}" class="masonry__image position-absolute start-50 top-50 translate-middle z-1 text-white w-100 h-100 d-flex justify-content-center align-items-center rounded-12 hidden opacity-0">
+                                    <span class="w-48 h-48 bg-main-600 text-white rounded-circle flex-center">
+                                        <i class="ph ph-plus"></i>
+                                    </span>
+                                </a>
+                            </div>
                         </div>
                     @endforeach
                 </div>

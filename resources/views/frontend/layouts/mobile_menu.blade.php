@@ -10,6 +10,7 @@
                 <li class="nav-menu__item activePage">
                     <a href="{{ route('index') }}" class="nav-menu__link">Home</a>
                 </li>
+
                 <li class="nav-menu__item has-submenu">
                     <a href="{{ route('frontend.training.development') }}" class="nav-menu__link">Academy</a>
                     <ul class="nav-submenu scroll-sm">
@@ -18,15 +19,15 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-menu__item">
                     <a href="{{ route('frontend.admission') }}" class="nav-menu__link">Admission</a>
                 </li>
+
                 <li class="nav-menu__item">
                     <a href="{{ route('frontend.scholarship') }}" class="nav-menu__link">Scholarship</a>
                 </li>
-                <li class="nav-menu__item">
-                    <a href="{{ route('frontend.campus.facilities') }}" class="nav-menu__link">Campus</a>
-                </li>
+
                 <li class="nav-menu__item has-submenu">
                     <a href="{{ route('frontend.about.us') }}" class="nav-menu__link">About Us</a>
                     <ul class="nav-submenu scroll-sm">
@@ -49,6 +50,9 @@
                             <a href="{{ route('frontend.our.partners') }}" class="nav-submenu__link hover-bg-neutral-30">Our Partners</a>
                         </li>
                         <li class="nav-submenu__item">
+                            <a href="{{ route('frontend.campus.facilities') }}" class="nav-submenu__link hover-bg-neutral-30">Campus &amp; Facilities</a>
+                        </li>
+                        <li class="nav-submenu__item">
                             <a href="{{ route('frontend.academic.faculty') }}" class="nav-submenu__link hover-bg-neutral-30">Academic Faculty</a>
                         </li>
                         <li class="nav-submenu__item">
@@ -60,47 +64,41 @@
                     </ul>
                 </li>
 
-                <li class="nav-menu__item has-submenu">
-                    <a href="javascript:void(0)" class="nav-menu__link">Notices</a>
-                    <ul class="nav-submenu scroll-sm">
-                        <li class="nav-submenu__item">
-                            <a href="{{ route('frontend.notice.list') }}" class="nav-submenu__link hover-bg-neutral-30">Notice</a>
-                        </li>
-                        <li class="nav-submenu__item">
-                            <a href="{{ route('frontend.notice.circular') }}" class="nav-submenu__link hover-bg-neutral-30">Notice &amp; Circular</a>
-                        </li>
-                        <li class="nav-submenu__item">
-                            <a href="{{ route('frontend.publications') }}" class="nav-submenu__link hover-bg-neutral-30">Publications</a>
-                        </li>
-                    </ul>
-                </li>
-
                 <li class="nav-menu__item">
-                    <a href="{{ route('frontend.career') }}" class="nav-menu__link">Career</a>
-                </li>
-
-                <li class="nav-menu__item">
-                    <a href="{{ route('frontend.gallery') }}" class="nav-menu__link">Gallery</a>
-                </li>
-
-                <li class="nav-menu__item">
-                    <a href="{{ route('frontend.media') }}" class="nav-menu__link">Media</a>
-                </li>
-
-                <li class="nav-menu__item">
-                    <a href="{{ route('frontend.blog.list') }}" class="nav-menu__link">Blog</a>
-                </li>
-                <li class="nav-menu__item">
-                    <a href="{{ route('frontend.donation.list') }}" class="nav-menu__link">Donation</a>
+                    <a href="{{ route('frontend.notice.list') }}" class="nav-menu__link">Notice</a>
                 </li>
 
                 <li class="nav-menu__item">
                     <a href="{{ route('frontend.contact.us') }}" class="nav-menu__link">Contact</a>
                 </li>
 
-                <li class="nav-menu__item">
-                    <a href="{{ route('frontend.faq') }}" class="nav-menu__link">FAQ</a>
+                <li class="nav-menu__item has-submenu">
+                    <a href="javascript:void(0)" class="nav-menu__link">More</a>
+                    <ul class="nav-submenu scroll-sm">
+                        <li class="nav-submenu__item">
+                            <a href="{{ route('frontend.all.services.list') }}" class="nav-submenu__link hover-bg-neutral-30">Services</a>
+                        </li>
+                        <li class="nav-submenu__item">
+                            <a href="{{ route('frontend.gallery') }}" class="nav-submenu__link hover-bg-neutral-30">Gallery</a>
+                        </li>
+                        <li class="nav-submenu__item">
+                            <a href="{{ route('frontend.media') }}" class="nav-submenu__link hover-bg-neutral-30">Media</a>
+                        </li>
+                        <li class="nav-submenu__item">
+                            <a href="{{ route('frontend.blog.list') }}" class="nav-submenu__link hover-bg-neutral-30">Blog</a>
+                        </li>
+                        <li class="nav-submenu__item">
+                            <a href="{{ route('frontend.career') }}" class="nav-submenu__link hover-bg-neutral-30">Career</a>
+                        </li>
+                        <li class="nav-submenu__item">
+                            <a href="{{ route('frontend.donation.list') }}" class="nav-submenu__link hover-bg-neutral-30">Donation</a>
+                        </li>
+                        <li class="nav-submenu__item">
+                            <a href="{{ route('frontend.faq') }}" class="nav-submenu__link hover-bg-neutral-30">FAQ</a>
+                        </li>
+                    </ul>
                 </li>
+
             </ul>
 
         </div>

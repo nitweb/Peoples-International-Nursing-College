@@ -10,6 +10,20 @@
     {{-- Title --}}
     <title>@yield('title') | Peoples International Nursing College</title>
 
+    {{-- Open Graph Meta Tags --}}
+    <meta property="og:title" content="@yield('title') | Peoples International Nursing College">
+    <meta property="og:description" content="@yield('meta_description', 'Peoples International Nursing College')">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ !empty($global_setting->header_logo) ? asset($global_setting->header_logo) : asset('frontend/assets/images/logo/logo.png') }}">
+    <meta property="og:site_name" content="Peoples International Nursing College">
+
+    {{-- Twitter Card Meta Tags --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title') | Peoples International Nursing College">
+    <meta name="twitter:description" content="@yield('meta_description', 'Peoples International Nursing College')">
+    <meta name="twitter:image" content="{{ !empty($global_setting->header_logo) ? asset($global_setting->header_logo) : asset('frontend/assets/images/logo/logo.png') }}">
+
     {{-- Favicon --}}
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/logo/favicon.png') }}">
 

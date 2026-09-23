@@ -31,7 +31,7 @@
 
                                     <div class="form-group row mb-4">
                                         <div class="col-md-8">
-                                            <label class="col-form-label">Image [416px by 280px]</label>
+                                            <label class="col-form-label">Image [830px by 500px]</label>
                                             <div id="image-preview" class="image-preview">
                                                 <label for="image-upload" id="image-label">Choose File</label>
                                                 <input type="file" name="career_image" id="image-upload">
@@ -53,7 +53,7 @@
                                             <input type="text" class="form-control" name="location" value="{{ $career->location }}" placeholder="e.g. Head Office, Dhaka">
                                         </div>
                                         <div class="col-md-4">
-                                            <label class="col-form-label">Job Type</label>
+                                            <label class="col-form-label selectric">Job Type</label>
                                             <select name="job_type" class="form-control" required>
                                                 <option value="full-time" {{ $career->job_type == 'full-time' ? 'selected' : '' }}>Full-time</option>
                                                 <option value="part-time" {{ $career->job_type == 'part-time' ? 'selected' : '' }}>Part-time</option>

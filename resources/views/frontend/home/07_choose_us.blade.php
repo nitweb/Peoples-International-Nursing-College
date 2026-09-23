@@ -1,4 +1,4 @@
-<section class="choose-us-two pt-120">
+<section class="choose-us-two pt-120 bg-main-25">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-lg-7 pe-xl-5">

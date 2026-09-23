@@ -93,7 +93,6 @@ Route::group(
                 Route::get('/client', 'Client')->name('client');
 
                 Route::get('/gallery', 'Gallery')->name('gallery');
-                Route::get('/gallery/{id}', 'GalleryDetails')->name('gallery.details');
 
                 Route::get('/career', 'Career')->name('career');
                 Route::get('/career-details/{slug}', 'CareerDetails')->name('career.details');
@@ -153,7 +152,7 @@ Route::group(
                 Route::get('/', 'DonationList')->name('list');
                 Route::get('/donate', 'DonateForm')->name('donate'); // general donation (no category)
                 Route::post('/donate/submit', 'DonateSubmit')->name('donate.submit');
-                Route::get('/bkash/callback', 'BkashCallback')->name('bkash.callback');
+                Route::get('/bkash/callback', [\App\Http\Controllers\BkashController::class, 'callback'])->name('bkash.callback');
                 Route::get('/success/{invoice}', 'DonationSuccess')->name('success');
                 Route::get('/failed/{invoice}', 'DonationFailed')->name('failed');
 

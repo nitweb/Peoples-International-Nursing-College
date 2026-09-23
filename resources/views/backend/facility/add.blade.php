@@ -45,7 +45,7 @@
 
                                         {{-- Image --}}
                                         <div class="col-md-6 mb-3">
-                                            <label class="col-form-label">Facility Photo</label>
+                                            <label class="col-form-label">Facility Photo [850px by 550px]</label>
                                             <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" accept="image/*">
                                             @error('image')
                                                 <span class="invalid-feedback d-block">{{ $message }}</span>

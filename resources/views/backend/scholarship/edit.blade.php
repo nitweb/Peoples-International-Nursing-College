@@ -46,7 +46,7 @@
 
                                         {{-- Image --}}
                                         <div class="col-md-6 mb-3">
-                                            <label class="col-form-label">Photo</label>
+                                            <label class="col-form-label">Photo [850px by 550px]</label>
                                             <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" accept="image/*">
                                             @if ($scholarship_info->image)
                                                 <div class="table_slider_list_image mt-2" style="background-image: url({{ asset($scholarship_info->image) }});"></div>

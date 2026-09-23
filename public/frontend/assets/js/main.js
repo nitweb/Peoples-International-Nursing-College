@@ -1125,6 +1125,21 @@ if ($('ul').length) {
     }
   });
 
+  // ========================= Gallery Page Popup Js Start ===================
+  $('.gallery__wrapper').magnificPopup({
+    delegate: 'a.masonry__image',
+    type: 'image',
+    removalDelay: 300,
+    mainClass: 'mfp-fade',
+    gallery:{
+      enabled:true
+    },
+    image:{
+      titleSrc: 'title'
+    }
+  });
+  // ========================= Gallery Page Popup Js End ===================
+
     // ========================= Color List Js Start ===================
     $('.color-list__button').on('click', function () {
       $('.color-list__button').removeClass('active'); 

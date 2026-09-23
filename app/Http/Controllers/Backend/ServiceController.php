@@ -43,6 +43,7 @@ class ServiceController extends Controller
             [
                 'title' => 'required|max:100',
                 'service_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+                'service_banner_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                 'short_description' => 'required|string|max:250',
                 'long_description' => 'required|string',
             ],
@@ -53,6 +54,9 @@ class ServiceController extends Controller
                 'service_image.image' => 'Service image must be an image',
                 'service_image.mimes' => 'Service image must be jpeg, png or jpg',
                 'service_image.max' => 'Service image must be less than 2MB',
+                'service_banner_image.image' => 'Service banner image must be an image',
+                'service_banner_image.mimes' => 'Service banner image must be jpeg, png or jpg',
+                'service_banner_image.max' => 'Service banner image must be less than 2MB',
                 'short_description.required' => 'Short description is required',
                 'short_description.max' => 'Short description is too long',
                 'long_description.required' => 'Long description is required',
@@ -76,6 +80,7 @@ class ServiceController extends Controller
 
             $serviceDetails = new ServiceDetails();
             $serviceDetails->service_id = $service->id;
+            $serviceDetails->service_category_id = 1;
             $serviceDetails->icon = '#!';
             $serviceDetails->short_description = $request->short_description;
             $serviceDetails->long_description = $request->long_description;
@@ -88,9 +93,19 @@ class ServiceController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $service_image->getClientOriginalExtension();
                 $image = $manager->read($service_image);
-                $image->resize(1290, 550);
+                $image->resize(830, 500);
                 $image->toJpeg(80)->save(base_path('public/uploads/services/' . $name_gen));
                 $serviceDetails->service_image = 'uploads/services/' . $name_gen;
+            }
+
+            if ($request->hasFile('service_banner_image')) {
+                $service_banner_image = $request->file('service_banner_image');
+                $manager = new ImageManager(new Driver());
+                $banner_name_gen = hexdec(uniqid()) . '.' . $service_banner_image->getClientOriginalExtension();
+                $bannerImage = $manager->read($service_banner_image);
+                $bannerImage->resize(830, 500);
+                $bannerImage->toJpeg(80)->save(base_path('public/uploads/services/' . $banner_name_gen));
+                $serviceDetails->service_banner_image = 'uploads/services/' . $banner_name_gen;
             }
 
             $serviceDetails->save();
@@ -122,6 +137,7 @@ class ServiceController extends Controller
                 'id' => 'required|integer',
                 'title' => 'required|max:100',
                 'service_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+                'service_banner_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                 'short_description' => 'required|string|max:250',
                 'long_description' => 'required|string',
                 'status' => 'required',
@@ -133,6 +149,9 @@ class ServiceController extends Controller
                 'service_image.image' => 'Service image must be an image',
                 'service_image.mimes' => 'Service image must be jpeg, png or jpg',
                 'service_image.max' => 'Service image must be less than 2MB',
+                'service_banner_image.image' => 'Service banner image must be an image',
+                'service_banner_image.mimes' => 'Service banner image must be jpeg, png or jpg',
+                'service_banner_image.max' => 'Service banner image must be less than 2MB',
                 'short_description.required' => 'Short description is required',
                 'short_description.max' => 'Short description is too long',
                 'long_description.required' => 'Long description is required',
@@ -160,6 +179,7 @@ class ServiceController extends Controller
             if (!$serviceDetails) {
                 $serviceDetails = new ServiceDetails();
                 $serviceDetails->service_id = $service->id;
+                $serviceDetails->service_category_id = 1;
             }
 
             $serviceDetails->icon = '#!';
@@ -179,9 +199,24 @@ class ServiceController extends Controller
                 $manager = new ImageManager(new Driver());
                 $name_gen = hexdec(uniqid()) . '.' . $service_image->getClientOriginalExtension();
                 $image = $manager->read($service_image);
-                $image->resize(1290, 550);
+                $image->resize(830, 500);
                 $image->toJpeg(80)->save(base_path('public/uploads/services/' . $name_gen));
                 $serviceDetails->service_image = 'uploads/services/' . $name_gen;
+            }
+
+            if ($request->hasFile('service_banner_image')) {
+                // পুরনো banner image delete
+                if ($serviceDetails->service_banner_image && file_exists(base_path('public/' . $serviceDetails->service_banner_image))) {
+                    unlink(base_path('public/' . $serviceDetails->service_banner_image));
+                }
+
+                $service_banner_image = $request->file('service_banner_image');
+                $manager = new ImageManager(new Driver());
+                $banner_name_gen = hexdec(uniqid()) . '.' . $service_banner_image->getClientOriginalExtension();
+                $bannerImage = $manager->read($service_banner_image);
+                $bannerImage->resize(830, 500);
+                $bannerImage->toJpeg(80)->save(base_path('public/uploads/services/' . $banner_name_gen));
+                $serviceDetails->service_banner_image = 'uploads/services/' . $banner_name_gen;
             }
 
             $serviceDetails->save();
@@ -208,14 +243,18 @@ class ServiceController extends Controller
                 abort(404);
             }
 
-            $imagePath = public_path($serviceDetails->service_image);
-            if (is_file($imagePath) && file_exists($imagePath)) {
-                unlink($imagePath);
+            if ($serviceDetails->service_image) {
+                $imagePath = public_path($serviceDetails->service_image);
+                if (is_file($imagePath) && file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
             }
 
-            $bannerImagePath = public_path($serviceDetails->service_banner_image);
-            if (is_file($bannerImagePath) && file_exists($bannerImagePath)) {
-                unlink($bannerImagePath);
+            if ($serviceDetails->service_banner_image) {
+                $bannerImagePath = public_path($serviceDetails->service_banner_image);
+                if (is_file($bannerImagePath) && file_exists($bannerImagePath)) {
+                    unlink($bannerImagePath);
+                }
             }
 
             $service->delete();

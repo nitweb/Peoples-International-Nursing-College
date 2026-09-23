@@ -3,9 +3,9 @@
     <aside id="sidebar-wrapper">
 
         <div class="sidebar-brand">
-            <a href="{{ route('admin.dashboard') }}" title="People's International Foundation">
+            <a href="{{ route('admin.dashboard') }}" title="Peoples International Nursing College">
                 <img alt="image" src="{{ asset('frontend/assets/images/logo/pinc_logo.png') }}" class="header-logo mt-3" alt="Site Logo" style="width: 50px;height: 75px;margin-bottom: 20px;" />
-                {{-- <span class="logo-name">People's International Foundation</span> --}}
+                {{-- <span class="logo-name">Peoples International Nursing College</span> --}}
             </a>
         </div>
 
@@ -32,7 +32,7 @@
 
             <li class="dropdown {{ request()->routeIs(['admin.about-us.list', 'admin.our-contents.list', 'admin.enlistment.list', 'admin.successful_portfolios.list', 'admin.about-message.list', 'admin.our-team.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="info"></i>
                     <span>About Us</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -58,12 +58,11 @@
 
             <li class="dropdown {{ request()->routeIs(['admin.service.list', 'admin.client.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="layers"></i>
                     <span>Services</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.service.list') }}">Services List</a></li>
-                    {{-- <li><a class="nav-link" href="{{ route('admin.client.list') }}">Our Clients</a></li> --}}
                 </ul>
             </li>
 
@@ -111,7 +110,7 @@
 
             <li class="dropdown {{ request()->routeIs(['admin.finance.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="dollar-sign"></i>
                     <span>Finance Support</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -121,7 +120,7 @@
 
             <li class="dropdown {{ request()->routeIs('admin.trainer.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="users"></i>
                     <span>Trainers</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -131,7 +130,7 @@
 
             <li class="dropdown {{ request()->routeIs(['admin.training.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="book-open"></i>
                     <span>Academy</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -141,7 +140,7 @@
 
             <li class="dropdown {{ request()->routeIs(['admin.training.enrollment.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="user-check"></i>
                     <span>Training Enrollments</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -149,7 +148,7 @@
                 </ul>
             </li>
 
-            {{-- <li class="dropdown {{ request()->routeIs('admin.testimonial.list') ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs('admin.testimonial.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="star"></i>
                     <span>Testimonials</span>
@@ -157,11 +156,11 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.testimonial.list') }}">Testimonial List</a></li>
                 </ul>
-            </li> --}}
+            </li>
 
             <li class="dropdown {{ request()->routeIs(['admin.blog-category.list', 'admin.blog.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="edit-3"></i>
                     <span>Blog</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -180,19 +179,19 @@
                 </ul>
             </li>
 
-            {{-- <li class="dropdown {{ request()->routeIs(['admin.gallery.list']) ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs(['admin.gallery.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="camera"></i>
                     <span>Gallery</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.gallery.list') }}">Gallery List</a></li>
                 </ul>
-            </li> --}}
+            </li>
 
             <li class="dropdown {{ request()->routeIs(['admin.media_video.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="video"></i>
                     <span>Media</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -202,7 +201,7 @@
 
             <li class="dropdown {{ request()->routeIs('admin.career.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="briefcase"></i>
                     <span>Careers</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -213,7 +212,7 @@
 
             <li class="dropdown {{ request()->routeIs('admin.contact.list') ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="list"></i>
+                    <i data-feather="mail"></i>
                     <span>Contact</span>
                 </a>
                 <ul class="dropdown-menu">
