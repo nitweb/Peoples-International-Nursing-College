@@ -152,7 +152,7 @@ Route::group(
                 Route::get('/', 'DonationList')->name('list');
                 Route::get('/donate', 'DonateForm')->name('donate'); // general donation (no category)
                 Route::post('/donate/submit', 'DonateSubmit')->name('donate.submit');
-                Route::get('/bkash/callback', 'BkashCallback')->name('bkash.callback');
+                Route::get('/bkash/callback', [\App\Http\Controllers\BkashController::class, 'callback'])->name('bkash.callback');
                 Route::get('/success/{invoice}', 'DonationSuccess')->name('success');
                 Route::get('/failed/{invoice}', 'DonationFailed')->name('failed');
 

@@ -23,40 +23,38 @@ class BkashService
         $this->password = (string) config('bkash.password');
     }
 
-    /**
-     * Get a valid id_token, from cache if possible (bKash tokens are valid ~1 hour).
-     */
+    // Step 1: Get token (id_token). Cache it for 55 minutes so we don't ask again and again.
     public function getToken(): ?string
     {
-        return Cache::remember('bkash_id_token', now()->addMinutes(55), function () {
-            $response = Http::withHeaders([
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json',
-                'username' => $this->username,
-                'password' => $this->password,
-            ])->post("{$this->baseUrl}/tokenized/checkout/token/grant", [
-                'app_key' => $this->appKey,
-                'app_secret' => $this->appSecret,
-            ]);
+        $token = Cache::get('bkash_id_token');
 
-            $body = $response->json();
+        if ($token) {
+            return $token;
+        }
 
-            if (! $response->successful() || empty($body['id_token'])) {
-                Log::error('bKash grant token failed', [
-                    'status' => $response->status(),
-                    'raw_body' => $response->body(),
-                    'url' => "{$this->baseUrl}/tokenized/checkout/token/grant",
-                ]);
-                Cache::forget('bkash_id_token');
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+            'username' => $this->username,
+            'password' => $this->password,
+        ])->post("{$this->baseUrl}/tokenized/checkout/token/grant", [
+            'app_key' => $this->appKey,
+            'app_secret' => $this->appSecret,
+        ]);
 
-                return null;
-            }
+        $body = $response->json();
 
-            return $body['id_token'];
-        });
+        if (! $response->successful() || empty($body['id_token'])) {
+            Log::error('bKash token grant failed', ['response' => $body]);
+            return null;
+        }
+
+        Cache::put('bkash_id_token', $body['id_token'], now()->addMinutes(55));
+
+        return $body['id_token'];
     }
 
-    protected function authHeaders(): array
+    protected function headers(): array
     {
         return [
             'Content-Type' => 'application/json',
@@ -66,18 +64,16 @@ class BkashService
         ];
     }
 
-    /**
-     * Create a payment. Returns the full bKash response array (includes 'bkashURL' to redirect the donor to).
-     */
+    // Step 2: Create payment. Returns bKash response (has 'bkashURL' to redirect user to).
     public function createPayment(string $invoiceNo, float $amount, string $callbackUrl): array
     {
-        $response = Http::withHeaders($this->authHeaders())
+        $response = Http::withHeaders($this->headers())
             ->post("{$this->baseUrl}/tokenized/checkout/create", [
                 'mode' => '0011',
                 'payerReference' => $invoiceNo,
                 'callbackURL' => $callbackUrl,
                 'amount' => number_format($amount, 2, '.', ''),
-                'currency' => config('bkash.currency', 'BDT'),
+                'currency' => 'BDT',
                 'intent' => 'sale',
                 'merchantInvoiceNumber' => $invoiceNo,
             ]);
@@ -91,12 +87,10 @@ class BkashService
         return $body;
     }
 
-    /**
-     * Execute a payment after the donor completes it on bKash's page.
-     */
+    // Step 3: Execute payment after user completes it on bKash's page.
     public function executePayment(string $paymentId): array
     {
-        $response = Http::withHeaders($this->authHeaders())
+        $response = Http::withHeaders($this->headers())
             ->post("{$this->baseUrl}/tokenized/checkout/execute", [
                 'paymentID' => $paymentId,
             ]);
@@ -108,16 +102,5 @@ class BkashService
         }
 
         return $body;
-    }
-
-    /**
-     * Query a payment's current status (useful if execute callback is missed / for reconciliation).
-     */
-    public function queryPayment(string $paymentId): array
-    {
-        $response = Http::withHeaders($this->authHeaders())
-            ->get("{$this->baseUrl}/tokenized/checkout/payment/status/{$paymentId}");
-
-        return $response->json() ?? [];
     }
 }
