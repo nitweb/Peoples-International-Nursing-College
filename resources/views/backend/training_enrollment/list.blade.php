@@ -96,7 +96,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="table_actions" style="display:flex; gap:8px;">
+                                                        <div class="table_actions d-flex gap-2">
                                                             <a href="{{ route('admin.training.enrollment.show', $item->id) }}" class="btn btn-outline-primary btn-sm" title="View">
                                                                 <i class="fas fa-eye"></i>
                                                             </a>

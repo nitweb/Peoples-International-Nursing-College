@@ -68,7 +68,7 @@
                                                     </td>
                                                     <td>{{ $item->created_at->format('d M Y, h:i A') }}</td>
                                                     <td>
-                                                        <div class="table_actions">
+                                                        <div class="table_actions d-flex gap-2">
                                                             <a href="{{ route('admin.donation.show', $item->id) }}" class="btn btn-outline-primary" title="View"><i class="far fa-eye"></i></a>
                                                             <a href="#!" class="btn btn-outline-danger" data-del="{{ route('admin.donation.delete', $item->id) }}" data-bs-toggle="modal" data-bs-target="#donation_delete_modal" data-name="{{ $item->invoice_no }}" title="Delete"><i class="far fa-trash-alt"></i></a>
                                                         </div>

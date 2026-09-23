@@ -199,7 +199,7 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ request()->routeIs('admin.career.list') ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs(['admin.career.list', 'admin.job_apply.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="briefcase"></i>
                     <span>Careers</span>

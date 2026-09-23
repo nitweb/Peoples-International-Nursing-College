@@ -64,7 +64,7 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <div class="table_actions">
+                                                        <div class="table_actions d-flex gap-2">
                                                             <a href="{{ route('admin.scholarship.edit', $item->id) }}" class="btn btn-outline-primary" title="Edit">
                                                                 <i class="far fa-edit"></i>
                                                             </a>

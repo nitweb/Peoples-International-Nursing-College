@@ -77,7 +77,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="table_actions">
+                                                        <div class="table_actions d-flex gap-2">
                                                             <a href="{{ route('frontend.donation.details', $item->slug) }}" target="_blank" class="btn btn-outline-secondary" title="View on Site"><i class="far fa-eye"></i></a>
                                                             <a href="{{ route('admin.donation-category.edit', $item->id) }}" class="btn btn-outline-primary" title="Edit"><i class="far fa-edit"></i></a>
                                                             <a href="#!" class="btn btn-outline-danger" data-del="{{ route('admin.donation-category.delete', $item->id) }}" data-bs-toggle="modal" data-bs-target="#donation_category_delete_modal" data-name="{{ $item->title }}" title="Delete"><i class="far fa-trash-alt"></i></a>

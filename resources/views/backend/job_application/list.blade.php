@@ -71,7 +71,7 @@
                                                             </form>
                                                         </td>
                                                         <td>
-                                                            <div class="table_actions">
+                                                            <div class="table_actions d-flex gap-2">
                                                                 <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#jobApplicationModal"
                                                                     data-interest="{{ $item->interested_in }}"
                                                                     data-message="{{ $item->message }}"

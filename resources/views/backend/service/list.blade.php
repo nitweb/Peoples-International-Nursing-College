@@ -67,7 +67,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="table_actions">
+                                                        <div class="table_actions d-flex gap-2">
                                                             <a href="{{ route('admin.service.edit', $item->id) }}" class="btn btn-outline-primary" alt="Edit" title="Edit"><i class="far fa-edit"></i></a>
                                                             <a href="#!" class="btn btn-outline-danger" data-del="{{ route('admin.service.delete', $item->id) }}" data-bs-toggle="modal" data-bs-target="#service_delete_modal" data-id="{{ $item->id }}" data-name="{{ $item->title }} alt="Delete" title="Delete"><i class="far fa-trash-alt"></i></a>
                                                         </div>
