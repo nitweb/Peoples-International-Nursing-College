@@ -46,10 +46,12 @@
                                         <thead>
                                             <tr>
                                                 <th>SN</th>
+                                                <th>Photo</th>
                                                 <th>Invoice</th>
-                                                <th>Training</th>
-                                                <th>Student</th>
-                                                <th>Phone</th>
+                                                <th>Course</th>
+                                                <th>Candidate</th>
+                                                <th>Admit Roll</th>
+                                                <th>Mobile</th>
                                                 <th>Amount</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -65,9 +67,18 @@
                                                         'cancelled' => 'secondary',
                                                         default => 'dark',
                                                     };
+                                                    $statusLabels = [
+                                                        'pending' => 'Pending',
+                                                        'paid' => 'Approved',
+                                                        'failed' => 'Rejected',
+                                                        'cancelled' => 'Cancelled',
+                                                    ];
                                                 @endphp
                                                 <tr>
                                                     <td>{{ $enrollment_info->count() - $key }}</td>
+                                                    <td>
+                                                        <img src="{{ $item->photo ? asset($item->photo) : asset('backend/assets/img/avatar/avatar-1.png') }}" alt="{{ $item->name }}" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">
+                                                    </td>
                                                     <td><small>{{ $item->invoice }}</small></td>
                                                     <td>
                                                         {{ $item->training?->title ?? 'N/A' }}
@@ -77,18 +88,22 @@
                                                             </div>
                                                         @endif
                                                     </td>
-                                                    <td>{{ $item->name }}</td>
+                                                    <td>
+                                                        {{ $item->name }}
+                                                        <div class="text-muted" style="font-size:11px;">{{ $item->father_name }}</div>
+                                                    </td>
+                                                    <td>{{ $item->admit_roll ?? '-' }}</td>
                                                     <td>{{ $item->phone }}</td>
                                                     <td>৳ {{ number_format($item->amount) }}</td>
                                                     <td>
                                                         <div class="d-flex align-items-center" style="gap:8px;">
                                                             <span id="badge-{{ $item->id }}" class="badge badge-{{ $badge }}">
-                                                                {{ ucfirst(str_replace('_', ' ', $item->status)) }}
+                                                                {{ $statusLabels[$item->status] ?? ucfirst($item->status) }}
                                                             </span>
                                                             <select class="form-control form-control-sm enrollment-status selectric" style="width:140px;" data-id="{{ $item->id }}" data-url="{{ route('admin.training.enrollment.status', $item->id) }}" data-old="{{ $item->status }}">
                                                                 <option value="pending" @selected($item->status === 'pending')>Pending</option>
-                                                                <option value="paid" @selected($item->status === 'paid')>Paid</option>
-                                                                <option value="failed" @selected($item->status === 'failed')>Failed</option>
+                                                                <option value="paid" @selected($item->status === 'paid')>Approve</option>
+                                                                <option value="failed" @selected($item->status === 'failed')>Reject</option>
                                                                 <option value="cancelled" @selected($item->status === 'cancelled')>Cancelled</option>
                                                             </select>
                                                         </div>
