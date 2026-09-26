@@ -46,25 +46,7 @@
                             </div>
 
                             <div class="p-24 bg-white rounded-12 border border-neutral-30 mb-24">
-                                <div class="flex-align gap-12 mb-16">
-                                    <span class="w-44 h-44 bg-main-two-600 text-white flex-center rounded-circle text-xl"><i class="ph-bold ph-device-mobile"></i></span>
-                                    <div>
-                                        <h6 class="mb-0">Pay via bKash (Send Money)</h6>
-                                        <span class="text-neutral-500 text-sm">Registration fee: ৳{{ number_format($training->registration_fee ?? 0) }}</span>
-                                    </div>
-                                </div>
-                                <p class="text-neutral-500 text-sm mb-16">Send the registration fee to our bKash number, then enter the number you sent from and the Transaction ID below.</p>
-
-                                <div class="row">
-                                    <div class="col-sm-6 mb-24">
-                                        <label class="text-neutral-700 fw-medium mb-8">Your bKash Number <span class="text-danger-600">*</span></label>
-                                        <input type="text" name="bkash_number" value="{{ old('bkash_number') }}" class="common-input rounded-8 w-100" placeholder="01XXXXXXXXX" required>
-                                    </div>
-                                    <div class="col-sm-6 mb-24">
-                                        <label class="text-neutral-700 fw-medium mb-8">bKash Transaction ID <span class="text-danger-600">*</span></label>
-                                        <input type="text" name="bkash_trx_id" value="{{ old('bkash_trx_id') }}" class="common-input rounded-8 w-100" placeholder="e.g. 8N7A6XXXXX" required>
-                                    </div>
-                                </div>
+                                <span class="text-neutral-500 text-sm">Registration fee: ৳{{ number_format($training->registration_fee ?? 0) }}</span>
                             </div>
 
                             <button type="submit" class="btn btn-main rounded-pill w-100 justify-content-center">

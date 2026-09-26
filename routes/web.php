@@ -13,9 +13,6 @@ use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\ClientController;
 use App\Http\Controllers\Backend\InstitutionController;
 use App\Http\Controllers\Backend\ContactController;
-use App\Http\Controllers\Backend\Donation\DonationCategoryController;
-use App\Http\Controllers\Backend\Donation\DonationController as BackendDonationController;
-use App\Http\Controllers\DonationController;
 use App\Http\Controllers\Backend\EnlistmentController;
 use App\Http\Controllers\Backend\FinanceController;
 use App\Http\Controllers\Backend\GalleryController;
@@ -140,27 +137,6 @@ Route::group(
                 Route::post('/media/{id}/view', 'MediaVideoView')->name('media.view');
             },
         );
-
-        // Donation — public routes (no popup, dedicated pages)
-        Route::group(
-            [
-                'prefix' => 'donation',
-                'controller' => DonationController::class,
-                'as' => 'frontend.donation.',
-            ],
-            function () {
-                Route::get('/', 'DonationList')->name('list');
-                Route::get('/donate', 'DonateForm')->name('donate'); // general donation (no category)
-                Route::post('/donate/submit', 'DonateSubmit')->name('donate.submit');
-                Route::get('/bkash/callback', [\App\Http\Controllers\BkashController::class, 'callback'])->name('bkash.callback');
-                Route::get('/success/{invoice}', 'DonationSuccess')->name('success');
-                Route::get('/failed/{invoice}', 'DonationFailed')->name('failed');
-
-                // Keep {slug} routes last so they don't swallow the fixed paths above
-                Route::get('/{slug}', 'DonationDetails')->name('details');
-                Route::get('/{slug}/donate', 'DonateForm')->name('donate.category');
-            },
-        );
     },
 );
 
@@ -195,37 +171,6 @@ Route::group(
                 Route::get('/edit/{id}', 'SliderEdit')->name('edit');
                 Route::post('/update', 'SliderUpdate')->name('update');
                 Route::get('/delete/{id}', 'SliderDelete')->name('delete');
-            },
-        );
-
-        // Donation Category All Routes
-        Route::group(
-            [
-                'prefix' => 'donation-category',
-                'controller' => DonationCategoryController::class,
-                'as' => 'donation-category.',
-            ],
-            function () {
-                Route::get('/list', 'DonationCategoryList')->name('list');
-                Route::get('/add', 'DonationCategoryAdd')->name('add');
-                Route::post('/store', 'DonationCategoryStore')->name('store');
-                Route::get('/edit/{id}', 'DonationCategoryEdit')->name('edit');
-                Route::post('/update', 'DonationCategoryUpdate')->name('update');
-                Route::get('/delete/{id}', 'DonationCategoryDelete')->name('delete');
-            },
-        );
-
-        // Donation Transaction All Routes
-        Route::group(
-            [
-                'prefix' => 'donation',
-                'controller' => BackendDonationController::class,
-                'as' => 'donation.',
-            ],
-            function () {
-                Route::get('/list', 'DonationTransactionList')->name('list');
-                Route::get('/show/{id}', 'DonationTransactionShow')->name('show');
-                Route::get('/delete/{id}', 'DonationTransactionDelete')->name('delete');
             },
         );
 

@@ -37,10 +37,6 @@
                             <a href="{{ route('frontend.admission') }}" class="nav-menu__link">Admission</a>
                         </li>
 
-                        <li class="nav-menu__item">
-                            <a href="{{ route('frontend.scholarship') }}" class="nav-menu__link">Scholarship</a>
-                        </li>
-
                         <li class="nav-menu__item has-submenu">
                             <a href="{{ route('frontend.about.us') }}" class="nav-menu__link">About Us</a>
                             <ul class="nav-submenu scroll-sm">
@@ -89,6 +85,9 @@
                             <a href="javascript:void(0)" class="nav-menu__link">More</a>
                             <ul class="nav-submenu scroll-sm">
                                 <li class="nav-submenu__item">
+                                    <a href="{{ route('frontend.scholarship') }}" class="nav-submenu__link hover-bg-neutral-30">Scholarship</a>
+                                </li>
+                                <li class="nav-submenu__item">
                                     <a href="{{ route('frontend.all.services.list') }}" class="nav-submenu__link hover-bg-neutral-30">Services</a>
                                 </li>
                                 <li class="nav-submenu__item">
@@ -104,7 +103,6 @@
                                     <a href="{{ route('frontend.career') }}" class="nav-submenu__link hover-bg-neutral-30">Career</a>
                                 </li>
                                 <li class="nav-submenu__item">
-                                    <a href="{{ route('frontend.donation.list') }}" class="nav-submenu__link hover-bg-neutral-30">Donation</a>
                                 </li>
                                 <li class="nav-submenu__item">
                                     <a href="{{ route('frontend.faq') }}" class="nav-submenu__link hover-bg-neutral-30">FAQ</a>

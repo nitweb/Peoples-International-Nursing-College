@@ -50,7 +50,6 @@
                                                 <th>Training</th>
                                                 <th>Student</th>
                                                 <th>Phone</th>
-                                                <th>bKash TRX</th>
                                                 <th>Amount</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -80,7 +79,6 @@
                                                     </td>
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->phone }}</td>
-                                                    <td><small>{{ $item->bkash_trx_id ?? '-' }}</small></td>
                                                     <td>৳ {{ number_format($item->amount) }}</td>
                                                     <td>
                                                         <div class="d-flex align-items-center" style="gap:8px;">

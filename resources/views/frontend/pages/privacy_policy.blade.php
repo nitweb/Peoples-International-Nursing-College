@@ -18,7 +18,7 @@
                         <h3>Information We Collect</h3>
                         <ul>
                             <li>Personal details you provide directly, such as name, email address, phone number, and postal address, when you fill out an admission, enrollment, career application, or contact form.</li>
-                            <li>Payment-related information when you make a payment (e.g. bKash transaction details) for training enrollment or donations. We do not store full payment credentials on our servers.</li>
+                            <li>Payment-related information when you make a payment for training enrollment. We do not store full payment credentials on our servers.</li>
                             <li>Technical information such as IP address, browser type, and pages visited, collected automatically to help us improve the website.</li>
                         </ul>
 

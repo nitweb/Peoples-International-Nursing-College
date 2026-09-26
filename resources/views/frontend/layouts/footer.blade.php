@@ -66,7 +66,6 @@
                                 <a href="{{ route('frontend.academic.faculty') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Academic Faculty</a>
                             </li>
                             <li class="mb-0">
-                                <a href="{{ route('frontend.donation.list') }}" class="text-white hover-text-main-600 hover-text-decoration-underline">Donation</a>
                             </li>
                         </ul>
                     </div>

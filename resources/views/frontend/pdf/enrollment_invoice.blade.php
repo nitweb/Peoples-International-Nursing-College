@@ -65,14 +65,6 @@
             <td>{{ $enrollment->training->title }}</td>
         </tr>
         <tr>
-            <th>bKash Number</th>
-            <td>{{ $enrollment->bkash_number }}</td>
-        </tr>
-        <tr>
-            <th>bKash Transaction ID</th>
-            <td>{{ $enrollment->bkash_trx_id }}</td>
-        </tr>
-        <tr>
             <th>Amount Paid</th>
             <td>৳ {{ number_format($enrollment->amount) }}</td>
         </tr>

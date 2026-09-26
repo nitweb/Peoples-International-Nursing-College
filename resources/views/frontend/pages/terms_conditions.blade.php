@@ -30,7 +30,7 @@
 
                         <h3>Payments</h3>
                         <ul>
-                            <li>Payments made through bKash or other listed methods for training enrollment or donations are subject to the payment provider's own terms.</li>
+                            <li>Payments made through listed methods for training enrollment are subject to the payment provider's own terms.</li>
                             <li>Refund eligibility, if any, is determined on a case-by-case basis. Please contact our office directly with your invoice/transaction details for any refund inquiries.</li>
                         </ul>
 

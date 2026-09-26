@@ -141,14 +141,6 @@
                                     </h6>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div style="font-size:11px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:3px;">bKash Number</div>
-                                            <div style="font-weight:700; color:#163355; font-size:14px;">{{ $enrollment->bkash_number ?? '-' }}</div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div style="font-size:11px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:3px;">Transaction ID</div>
-                                            <div style="font-weight:700; color:#163355; font-size:14px;">{{ $enrollment->bkash_trx_id ?? '-' }}</div>
-                                        </div>
-                                        <div class="col-md-4">
                                             <div style="font-size:11px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:3px;">Amount</div>
                                             <div style="font-weight:700; color:#163355; font-size:20px;">৳ {{ number_format($enrollment->amount) }}</div>
                                         </div>

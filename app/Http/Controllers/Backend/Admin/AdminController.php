@@ -20,8 +20,6 @@ use App\Models\Trainer;
 use App\Models\Training;
 use Carbon\Carbon;
 use App\Models\Contact;
-use App\Models\Donation;
-use App\Models\DonationCategory;
 use App\Models\Institution;
 use App\Models\OurTeam;
 use App\Models\Service;
@@ -43,33 +41,6 @@ class AdminController extends Controller
         $now = Carbon::now();
         $months = collect(range(5, 0))->map(fn ($i) => $now->copy()->startOfMonth()->subMonths($i));
         $rangeStart = $months->first();
-
-        // ---------- Donations ----------
-        $donationBase = Donation::where('status', 'completed');
-        $donationStats = [
-            'total_raised' => (float) (clone $donationBase)->sum('amount'),
-            'this_month' => (float) (clone $donationBase)->where('created_at', '>=', $now->copy()->startOfMonth())->sum('amount'),
-            'completed' => (clone $donationBase)->count(),
-            'pending' => Donation::where('status', 'pending')->count(),
-            'failed' => Donation::whereIn('status', ['failed', 'cancelled'])->count(),
-            'donors' => (clone $donationBase)->distinct('donor_phone')->count('donor_phone'),
-        ];
-        $recentDonations = Donation::with('category')->latest()->take(7)->get();
-        $categoryBreakdown = Donation::where('status', 'completed')
-            ->selectRaw('donation_category_id, SUM(amount) as raised, COUNT(*) as total')
-            ->groupBy('donation_category_id')
-            ->orderByDesc('raised')
-            ->take(6)
-            ->get()
-            ->map(function ($row) {
-                $cat = $row->donation_category_id ? DonationCategory::find($row->donation_category_id) : null;
-                $row->title = $cat->title ?? 'General Donation';
-                $row->target = $cat->target_amount ?? null;
-                return $row;
-            });
-
-        $donationRows = Donation::where('status', 'completed')->where('created_at', '>=', $rangeStart)->get(['amount', 'created_at']);
-        $donationTrend = $months->map(fn ($m) => (float) $donationRows->filter(fn ($d) => $d->created_at->format('Y-m') === $m->format('Y-m'))->sum('amount'))->values();
 
         // ---------- Enrollments ----------
         $enrollStats = [
@@ -125,7 +96,6 @@ class AdminController extends Controller
         ];
 
         return view('backend.admin.index', compact(
-            'donationStats', 'recentDonations', 'categoryBreakdown', 'donationTrend',
             'enrollStats', 'recentEnrollments', 'enrollTrend', 'enrollPaidTrend', 'chartMonths',
             'jobStats', 'recentApplications', 'closingCareers',
             'contactStats', 'recentContacts', 'content'

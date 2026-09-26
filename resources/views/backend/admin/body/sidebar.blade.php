@@ -45,17 +45,6 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ request()->routeIs(['admin.donation-category.list', 'admin.donation-category.add', 'admin.donation-category.edit', 'admin.donation.list', 'admin.donation.show']) ? 'active' : '' }}">
-                <a href="#" class="menu-toggle nav-link has-dropdown">
-                    <i data-feather="heart"></i>
-                    <span>Donation</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.donation-category.list') }}">Donation Categories</a></li>
-                    <li><a class="nav-link" href="{{ route('admin.donation.list') }}">Donation Transactions</a></li>
-                </ul>
-            </li>
-
             <li class="dropdown {{ request()->routeIs(['admin.service.list', 'admin.client.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="layers"></i>

@@ -1,6 +1,9 @@
 <section class="choose-us-two pt-120 bg-main-25">
+
     <div class="container">
+
         <div class="row align-items-end">
+
             <div class="col-lg-7 pe-xl-5">
                 <div class="pb-80 mb-lg-5 me-lg-5">
                     <div class="flex-align d-inline-flex gap-8 mb-16 wow bounceInDown">
@@ -17,9 +20,21 @@
                     </a>
                 </div>
             </div>
+
             <div class="col-lg-5">
-                <div class="pt-40 pb-90 px-60 bg-neutral-900 rounded-top-4" data-aos="fade-up-left">
-                    <h4 class="mb-28 pb-28 border-bottom border-top-0 border-start-0 border-end-0 border-opacity-25 border-white border-dashed text-white">Latest Notices</h4>
+                <div class="pb-50 bg-neutral-900 rounded-top-4 overflow-hidden" data-aos="fade-up-left">
+                    <div class="px-60 pt-40 pb-28" style="background-color:#c8102e;">
+                        <div class="flex-align d-inline-flex gap-12">
+                            <span class="d-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-white" style="width:44px;height:44px;">
+                                <i class="ph-bold ph-megaphone text-xl" style="color:#c8102e;"></i>
+                            </span>
+                            <div>
+                                <span class="d-inline-block text-white text-uppercase fw-semibold text-opacity-75" style="font-size:12px;letter-spacing:1px;">Stay Updated</span>
+                                <h4 class="mb-0 text-white fw-bold">Notice Board</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-60 pt-28">
                     @if ($notices->count())
                         <ul>
                             @foreach ($notices as $notice)
@@ -35,8 +50,12 @@
                         <p class="text-white text-opacity-75 mb-0">No notices published yet.</p>
                     @endif
                     <a href="{{ route('frontend.notice.list') }}" class="text-main-two-600 fw-medium hover-text-decoration-underline">View All Notices</a>
+                    </div>
                 </div>
             </div>
+
         </div>
+
     </div>
+
 </section>

@@ -88,7 +88,6 @@
 
     @php
         $money = fn ($v) => '৳' . number_format((float) $v);
-        $donPill = ['completed' => 'ok', 'pending' => 'warn', 'failed' => 'bad', 'cancelled' => 'gray'];
         $enrPill = ['paid' => 'ok', 'pending' => 'warn', 'failed' => 'bad', 'cancelled' => 'gray'];
         $jobPill = ['pending' => 'warn', 'shortlisted' => 'info', 'hired' => 'ok', 'rejected' => 'bad'];
     @endphp
@@ -108,14 +107,6 @@
 
                 {{-- KPI cards --}}
                 <div class="pd-row g4">
-                    <a href="{{ route('admin.donation.list') }}" class="pd-card kpi">
-                        <div>
-                            <div class="kpi-label">Total Donations</div>
-                            <div class="kpi-value">{{ $money($donationStats['total_raised']) }}</div>
-                            <div class="kpi-meta"><b>{{ $money($donationStats['this_month']) }}</b> this month</div>
-                        </div>
-                        <div class="kpi-ico ico-green"><i class="fas fa-hand-holding-heart"></i></div>
-                    </a>
                     <a href="{{ route('admin.training.enrollment.list') }}" class="pd-card kpi">
                         <div>
                             <div class="kpi-label">Enrollments</div>
@@ -147,75 +138,11 @@
                     <div class="pd-card">
                         <div class="pd-head">
                             <div>
-                                <h5 class="pd-title">Donation Trend</h5>
-                                <p class="pd-sub">Completed donations, last 6 months (BDT)</p>
-                            </div>
-                        </div>
-                        <div id="pdDonationChart"></div>
-                    </div>
-                    <div class="pd-card">
-                        <div class="pd-head">
-                            <div>
                                 <h5 class="pd-title">Enrollment Trend</h5>
                                 <p class="pd-sub">New vs paid enrollments, last 6 months</p>
                             </div>
                         </div>
                         <div id="pdEnrollChart"></div>
-                    </div>
-                </div>
-
-                {{-- Donations --}}
-                <div class="pd-row g-8-4">
-                    <div class="pd-card">
-                        <div class="pd-head">
-                            <div>
-                                <h5 class="pd-title">Recent Donations</h5>
-                                <p class="pd-sub">{{ $donationStats['completed'] }} completed · {{ $donationStats['pending'] }} pending · {{ $donationStats['failed'] }} failed/cancelled</p>
-                            </div>
-                            <a class="pd-link" href="{{ route('admin.donation.list') }}">View all →</a>
-                        </div>
-                        <div class="table-wrap">
-                            <table class="pd-table">
-                                <thead><tr><th>Donor</th><th>Category</th><th>Status</th><th class="num">Amount</th></tr></thead>
-                                <tbody>
-                                @forelse ($recentDonations as $d)
-                                    <tr>
-                                        <td>
-                                            <a href="{{ route('admin.donation.show', $d->id) }}"><b>{{ $d->is_anonymous ? 'Anonymous' : $d->donor_name }}</b></a>
-                                            <span class="sub">{{ $d->invoice_no }} · {{ $d->created_at->diffForHumans() }}</span>
-                                        </td>
-                                        <td>{{ $d->category->title ?? 'General' }}</td>
-                                        <td><span class="pill pill-{{ $donPill[$d->status] ?? 'gray' }}">{{ $d->status }}</span></td>
-                                        <td class="num">{{ $money($d->amount) }}</td>
-                                    </tr>
-                                @empty
-                                    <tr><td colspan="4" class="empty">No donations yet.</td></tr>
-                                @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="pd-card">
-                        <div class="pd-head">
-                            <div>
-                                <h5 class="pd-title">Category-wise Donations</h5>
-                                <p class="pd-sub">{{ number_format($donationStats['donors']) }} unique donors</p>
-                            </div>
-                            <a class="pd-link" href="{{ route('admin.donation-category.list') }}">Manage →</a>
-                        </div>
-                        @php $maxRaised = max(1, (float) ($categoryBreakdown->max('raised') ?? 1)); @endphp
-                        @forelse ($categoryBreakdown as $c)
-                            @php $pct = $c->target ? min(100, round(($c->raised / $c->target) * 100)) : round(($c->raised / $maxRaised) * 100); @endphp
-                            <div class="bar-item">
-                                <div class="bar-top">
-                                    <span>{{ $c->title }}</span>
-                                    <span>{{ $money($c->raised) }}{{ $c->target ? ' / ' . $money($c->target) : '' }}</span>
-                                </div>
-                                <div class="bar-track"><div class="bar-fill" style="width: {{ $pct }}%"></div></div>
-                            </div>
-                        @empty
-                            <div class="empty">No completed donations yet.</div>
-                        @endforelse
                     </div>
                 </div>
 
@@ -363,20 +290,6 @@
             var months = @json($chartMonths);
             var font = 'inherit';
             var grid = { borderColor: '#EEF2F7', strokeDashArray: 4 };
-
-            new ApexCharts(document.querySelector('#pdDonationChart'), {
-                chart: { type: 'area', height: 260, toolbar: { show: false }, fontFamily: font },
-                series: [{ name: 'Donations', data: @json($donationTrend) }],
-                xaxis: { categories: months, axisBorder: { show: false }, axisTicks: { show: false } },
-                yaxis: { labels: { formatter: function (v) { return '৳' + Math.round(v).toLocaleString(); } } },
-                stroke: { curve: 'smooth', width: 3 },
-                fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: .25, opacityTo: 0.02 } },
-                colors: ['#18477F'],
-                dataLabels: { enabled: false },
-                grid: grid,
-                markers: { size: 4, strokeWidth: 0 },
-                tooltip: { y: { formatter: function (v) { return '৳' + Math.round(v).toLocaleString(); } } }
-            }).render();
 
             new ApexCharts(document.querySelector('#pdEnrollChart'), {
                 chart: { type: 'bar', height: 260, toolbar: { show: false }, fontFamily: font },

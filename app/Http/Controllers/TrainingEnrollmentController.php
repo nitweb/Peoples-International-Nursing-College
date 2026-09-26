@@ -30,8 +30,6 @@ class TrainingEnrollmentController extends Controller
             'email' => 'nullable|email|max:120',
             'address' => 'nullable|string|max:255',
             'note' => 'nullable|string|max:500',
-            'bkash_number' => 'required|string|max:30',
-            'bkash_trx_id' => 'required|string|max:100',
         ]);
 
         DB::beginTransaction();
@@ -48,8 +46,6 @@ class TrainingEnrollmentController extends Controller
                 'email' => $request->email,
                 'address' => $request->address,
                 'note' => $request->note,
-                'bkash_number' => $request->bkash_number,
-                'bkash_trx_id' => $request->bkash_trx_id,
                 'amount' => $training->registration_fee ?? 0,
                 'status' => 'pending',
             ]);

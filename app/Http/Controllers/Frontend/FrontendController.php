@@ -242,14 +242,14 @@ class FrontendController extends Controller
                 'category' => 'Admission',
                 'items' => [
                     ['q' => 'What are the eligibility requirements for admission?', 'a' => 'Applicants must meet the minimum academic qualification set for each program (please check the specific course page for details) and complete the online or in-person application process before the registration deadline.'],
-                    ['q' => 'How do I apply for a program?', 'a' => 'Browse our Academy page, select a program, and click "Enroll Now" to fill out the enrollment form. You can pay the registration fee via bKash directly from the form.'],
+                    ['q' => 'How do I apply for a program?', 'a' => 'Browse our Academy page, select a program, and click "Enroll Now" to fill out the enrollment form.'],
                     ['q' => 'Is there an entrance exam?', 'a' => 'This depends on the specific program. Please check the individual program details page or contact our admissions office for the latest requirements.'],
                 ],
             ],
             [
                 'category' => 'Fees & Payment',
                 'items' => [
-                    ['q' => 'What payment methods are accepted?', 'a' => 'We currently accept payments via bKash for training enrollments and donations. Bank transfer options may be available on request — please contact our office.'],
+                    ['q' => 'What payment methods are accepted?', 'a' => 'Please contact our admissions office for the currently accepted payment methods for training enrollments.'],
                     ['q' => 'Are scholarships available?', 'a' => 'Yes, merit-based scholarships and financial assistance are available for eligible students. Contact our admissions office for details on how to apply.'],
                     ['q' => 'Can I get a refund if I cancel my enrollment?', 'a' => 'Refund policies vary by program. Please contact our office directly with your invoice number to discuss your specific situation.'],
                 ],

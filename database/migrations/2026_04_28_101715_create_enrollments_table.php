@@ -19,8 +19,6 @@ return new class extends Migration {
             $table->string('email', 120)->nullable();
             $table->string('address', 255)->nullable();
             $table->string('note', 500)->nullable();
-            $table->string('bkash_number', 30)->nullable();
-            $table->string('bkash_trx_id', 100)->nullable();
             $table->unsignedInteger('amount')->default(0);
             $table->enum('status', ['pending', 'paid', 'failed', 'cancelled'])->default('pending');
             $table->timestamps();

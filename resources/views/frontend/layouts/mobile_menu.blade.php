@@ -91,7 +91,6 @@
                             <a href="{{ route('frontend.career') }}" class="nav-submenu__link hover-bg-neutral-30">Career</a>
                         </li>
                         <li class="nav-submenu__item">
-                            <a href="{{ route('frontend.donation.list') }}" class="nav-submenu__link hover-bg-neutral-30">Donation</a>
                         </li>
                         <li class="nav-submenu__item">
                             <a href="{{ route('frontend.faq') }}" class="nav-submenu__link hover-bg-neutral-30">FAQ</a>
