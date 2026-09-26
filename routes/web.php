@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AboutUsController;
+use App\Http\Controllers\Backend\AdmissionNoticeController;
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\AdmissionInfoController;
 use App\Http\Controllers\Backend\FacilityController;
@@ -524,6 +525,23 @@ Route::group(
                 Route::get('/edit/{id}', 'NoticeEdit')->name('edit');
                 Route::post('/update', 'NoticeUpdate')->name('update');
                 Route::get('/delete/{id}', 'NoticeDelete')->name('delete');
+            },
+        );
+
+        // Admission Notice All Routes
+        Route::group(
+            [
+                'prefix' => 'admission-notice',
+                'controller' => AdmissionNoticeController::class,
+                'as' => 'admission-notice.',
+            ],
+            function () {
+                Route::get('/list', 'AdmissionNoticeList')->name('list');
+                Route::get('/add', 'AdmissionNoticeAdd')->name('add');
+                Route::post('/store', 'AdmissionNoticeStore')->name('store');
+                Route::get('/edit/{id}', 'AdmissionNoticeEdit')->name('edit');
+                Route::post('/update', 'AdmissionNoticeUpdate')->name('update');
+                Route::get('/delete/{id}', 'AdmissionNoticeDelete')->name('delete');
             },
         );
 

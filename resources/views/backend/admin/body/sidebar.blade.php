@@ -168,6 +168,17 @@
                 </ul>
             </li>
 
+            <li class="dropdown {{ request()->routeIs(['admin.admission-notice.list', 'admin.admission-notice.add', 'admin.admission-notice.edit']) ? 'active' : '' }}">
+                <a href="#" class="menu-toggle nav-link has-dropdown">
+                    <i data-feather="volume-2"></i>
+                    <span>Admission Notice</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.admission-notice.list') }}">Admission Notice List</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.admission-notice.add') }}">Add Admission Notice</a></li>
+                </ul>
+            </li>
+
             <li class="dropdown {{ request()->routeIs(['admin.gallery.list']) ? 'active' : '' }}">
                 <a href="#" class="menu-toggle nav-link has-dropdown">
                     <i data-feather="camera"></i>

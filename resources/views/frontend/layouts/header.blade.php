@@ -134,3 +134,93 @@
     </div>
 
 </header>
+
+@php
+    $admission_notices = \App\Models\AdmissionNotice::where('status', 1)->latest()->get();
+@endphp
+
+@if ($admission_notices->isNotEmpty())
+    <div class="admission-notice-bar">
+        <div class="admission-notice-bar__label">Admission Notice:</div>
+        <div class="admission-notice-bar__track">
+            <div class="admission-notice-bar__scroll">
+                @foreach ($admission_notices as $notice)
+                    <a href="{{ $notice->link ?: route('frontend.admission') }}" class="admission-notice-bar__link">
+                        {{ $notice->text }}
+                    </a>
+                    @if (!$loop->last)
+                        <span class="admission-notice-bar__sep">&nbsp;&nbsp;&raquo;&nbsp;&nbsp;</span>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .admission-notice-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: #0a7a5c;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .admission-notice-bar__label {
+            flex: 0 0 auto;
+            background: #d32f2f;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px 16px;
+            white-space: nowrap;
+        }
+
+        .admission-notice-bar__track {
+            flex: 1 1 auto;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .admission-notice-bar__scroll {
+            display: inline-flex;
+            align-items: center;
+            padding-left: 100%;
+            white-space: nowrap;
+            animation: admission-notice-scroll 60s linear infinite;
+        }
+
+        .admission-notice-bar:hover .admission-notice-bar__scroll {
+            animation-play-state: paused;
+        }
+
+        .admission-notice-bar__link {
+            display: inline-block;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .admission-notice-bar__link:hover {
+            color: #ffe08a;
+            text-decoration: underline;
+        }
+
+        .admission-notice-bar__sep {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        @keyframes admission-notice-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+@endif
