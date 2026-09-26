@@ -356,7 +356,7 @@
                                 <ol class="text-neutral-500 text-sm mt-8 mb-16" style="padding-left:18px;">
                                     <li>I declare that all information, mark-sheets and certificates provided are true and I will not apply for cancellation after admission is closed.</li>
                                     <li>I agree to follow all course fee rules. Fees paid during admission are non-refundable and cannot be transferred to another course.</li>
-                                    <li>Bangladesh Nursing College authority reserves the right to cancel my registration fee if the admission is cancelled after confirmation.</li>
+                                    <li>Peoples International Nursing College authority reserves the right to cancel my registration fee if the admission is cancelled after confirmation.</li>
                                     <li>I will pay the yearly tuition fee within the fixed time as per notice.</li>
                                     <li>I confirm that I have no unresolved disciplinary issue with any previous institution and I will provide supporting documents if required.</li>
                                     <li>I will abide by the rules and regulations of the college/institution, Bangladesh Nursing and Midwifery Council and Bangladesh Government.</li>

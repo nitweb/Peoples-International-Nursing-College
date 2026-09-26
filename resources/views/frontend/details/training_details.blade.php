@@ -51,8 +51,46 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="p-32 bg-main-25 rounded-16 border border-neutral-30 position-sticky" style="top: 24px;">
-                        <div class="flex-between gap-8 pb-24 border-bottom border-neutral-50 mb-24 border-dashed border-0">
+                    <style>
+                        .course-info-list .info-row {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2px;
+                            padding-bottom: 10px;
+                            margin-bottom: 10px;
+                            border-bottom: 1px dashed #e5e7eb;
+                        }
+
+                        .course-info-list .info-row:last-child {
+                            border-bottom: none;
+                            padding-bottom: 0;
+                            margin-bottom: 0;
+                        }
+
+                        .course-info-list .info-label {
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                            white-space: nowrap;
+                            color: var(--neutral-500, #6b7280);
+                            font-size: 13px;
+                        }
+
+                        .course-info-list .info-label i {
+                            flex-shrink: 0;
+                        }
+
+                        .course-info-list .info-value {
+                            font-weight: 600;
+                            font-size: 14px;
+                            color: var(--neutral-700, #374151);
+                            word-break: break-word;
+                            overflow-wrap: anywhere;
+                        }
+                    </style>
+
+                    <div class="p-24 bg-main-25 rounded-16 border border-neutral-30 position-sticky" style="top: 24px;">
+                        <div class="flex-between gap-8 pb-16 border-bottom border-neutral-50 mb-16 border-dashed border-0">
                             <span class="text-neutral-500">{{ $training_details->category === 'academic_program' ? 'Program Fee' : 'Regular Fee' }}</span>
                             <h4 class="mb-0 text-main-two-600">
                                 @if ($training_details->regular_fee)
@@ -63,59 +101,65 @@
                             </h4>
                         </div>
 
-                        <ul class="list-unstyled mb-32">
+                        <ul class="list-unstyled mb-20 course-info-list">
                             @if ($training_details->category === 'academic_program' && $training_details->program_level)
-                                <li class="flex-between gap-8 mb-16">
-                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-graduation-cap"></i> Level</span>
-                                    <span class="fw-medium text-neutral-700">{{ $training_details->program_level }}</span>
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-graduation-cap"></i> Level</span>
+                                    <span class="info-value">{{ $training_details->program_level }}</span>
                                 </li>
                             @endif
                             @if ($training_details->category === 'academic_program' && $training_details->affiliation)
-                                <li class="flex-between gap-8 mb-16">
-                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-seal-check"></i> Affiliation</span>
-                                    <span class="fw-medium text-neutral-700 text-end">{{ $training_details->affiliation }}</span>
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-seal-check"></i> Affiliation</span>
+                                    <span class="info-value">{{ $training_details->affiliation }}</span>
                                 </li>
                             @endif
                             @if ($training_details->category === 'academic_program' && $training_details->total_seats)
-                                <li class="flex-between gap-8 mb-16">
-                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-users-three"></i> Total Seats</span>
-                                    <span class="fw-medium text-neutral-700">{{ $training_details->total_seats }}</span>
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-users-three"></i> Total Seats</span>
+                                    <span class="info-value">{{ $training_details->total_seats }}</span>
                                 </li>
                             @endif
                             @if ($training_details->category !== 'academic_program' && $training_details->type)
-                                <li class="flex-between gap-8 mb-16">
-                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-chart-bar"></i> Type</span>
-                                    <span class="fw-medium text-neutral-700">{{ ucfirst($training_details->type) }}</span>
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-chart-bar"></i> Type</span>
+                                    <span class="info-value">{{ ucfirst($training_details->type) }}</span>
+                                </li>
+                            @endif
+                            @if ($training_details->registration_fee)
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-ticket"></i> Registration Fee</span>
+                                    <span class="info-value">৳{{ number_format($training_details->registration_fee) }}</span>
                                 </li>
                             @endif
                             @if ($training_details->duration)
-                                <li class="flex-between gap-8 mb-16">
-                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-clock"></i> Duration</span>
-                                    <span class="fw-medium text-neutral-700">{{ $training_details->duration }}</span>
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-clock"></i> Duration</span>
+                                    <span class="info-value">{{ $training_details->duration }}</span>
                                 </li>
                             @endif
                             @if ($training_details->no_of_classes)
-                                <li class="flex-between gap-8 mb-16">
-                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-video-camera"></i> Classes</span>
-                                    <span class="fw-medium text-neutral-700">{{ $training_details->no_of_classes }}</span>
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-video-camera"></i> Classes</span>
+                                    <span class="info-value">{{ $training_details->no_of_classes }}</span>
                                 </li>
                             @endif
                             @if ($training_details->course_start)
-                                <li class="flex-between gap-8 mb-16">
-                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-calendar"></i> Course Start</span>
-                                    <span class="fw-medium text-neutral-700">{{ \Carbon\Carbon::parse($training_details->course_start)->format('d M, Y') }}</span>
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-calendar"></i> Course Start</span>
+                                    <span class="info-value">{{ \Carbon\Carbon::parse($training_details->course_start)->format('d M, Y') }}</span>
                                 </li>
                             @endif
                             @if ($training_details->registration_deadline)
-                                <li class="flex-between gap-8 mb-16">
-                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-hourglass"></i> Registration Deadline</span>
-                                    <span class="fw-medium text-neutral-700">{{ \Carbon\Carbon::parse($training_details->registration_deadline)->format('d M, Y') }}</span>
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-hourglass"></i> Registration Deadline</span>
+                                    <span class="info-value">{{ \Carbon\Carbon::parse($training_details->registration_deadline)->format('d M, Y') }}</span>
                                 </li>
                             @endif
                             @if ($training_details->certification)
-                                <li class="flex-between gap-8">
-                                    <span class="flex-align gap-8 text-neutral-700"><i class="ph-bold ph-certificate"></i> Certification</span>
-                                    <span class="fw-medium text-neutral-700">{{ $training_details->certification }}</span>
+                                <li class="info-row">
+                                    <span class="info-label"><i class="ph-bold ph-certificate"></i> Certification</span>
+                                    <span class="info-value">{{ $training_details->certification }}</span>
                                 </li>
                             @endif
                         </ul>
@@ -125,7 +169,7 @@
                         </a>
 
                         @if ($training_details->syllabus_file)
-                            <a href="{{ asset($training_details->syllabus_file) }}" target="_blank" class="btn btn-outline-main rounded-pill w-100 justify-content-center mt-16">
+                            <a href="{{ asset($training_details->syllabus_file) }}" target="_blank" class="btn btn-outline-main rounded-pill w-100 justify-content-center mt-12">
                                 <i class="ph-bold ph-file-pdf"></i> Download Syllabus
                             </a>
                         @endif
